@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XYLogBrowseTableViewHeaderView" customModule="EStudy" customModuleProvider="target">
+            <connections>
+                <outlet property="scrollToBottomBtn" destination="82Q-6Q-ZZs" id="zra-dA-UqG"/>
+                <outlet property="scrollToTopBtn" destination="LhT-qD-GY2" id="VDE-2I-2TC"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="wId-0i-BvQ">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhT-qD-GY2">
+                    <rect key="frame" x="330" y="7" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="8a8-bn-7Jr"/>
+                        <constraint firstAttribute="width" constant="25" id="RJ1-uy-4Fg"/>
+                    </constraints>
+                    <state key="normal" image="Public_Jump_to_top"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82Q-6Q-ZZs">
+                    <rect key="frame" x="285" y="7" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="ccq-jc-33W"/>
+                        <constraint firstAttribute="height" constant="25" id="i3K-cg-fx3"/>
+                    </constraints>
+                    <state key="normal" image="Public_Jump_to_bottom"/>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="LhT-qD-GY2" secondAttribute="bottom" constant="12" id="8ld-qG-10x"/>
+                <constraint firstItem="LhT-qD-GY2" firstAttribute="top" secondItem="wId-0i-BvQ" secondAttribute="top" constant="7" id="ZU8-Pa-9nu"/>
+                <constraint firstItem="G4Z-MV-c8p" firstAttribute="trailing" secondItem="LhT-qD-GY2" secondAttribute="trailing" constant="20" id="dnd-KZ-3Me"/>
+                <constraint firstItem="LhT-qD-GY2" firstAttribute="leading" secondItem="82Q-6Q-ZZs" secondAttribute="trailing" constant="20" id="pKr-9u-Erj"/>
+                <constraint firstItem="82Q-6Q-ZZs" firstAttribute="centerY" secondItem="LhT-qD-GY2" secondAttribute="centerY" id="w9V-Jg-SVq"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="G4Z-MV-c8p"/>
+            <point key="canvasLocation" x="-557.24637681159425" y="-510.9375"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Public_Jump_to_bottom" width="100" height="100"/>
+        <image name="Public_Jump_to_top" width="100" height="100"/>
+    </resources>
+</document>

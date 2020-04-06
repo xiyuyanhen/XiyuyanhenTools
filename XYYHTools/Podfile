@@ -1,0 +1,42 @@
+#使用cocoapods的时候，当cocoapods更新到新的版本的时候，pod install 会报此cocoapods没有满足的版本，要求更新cocoapods，应该是本地缓存的问题，在这里记录一下解决办法，方便以后查找。
+#// 移除本地master
+#sudo rm -fr ~/.cocoapods/repos/master
+#// 移除本地缓存
+#sudo rm -fr ~/Library/Caches/CocoaPods/
+#// 重新setup,如果网速较慢,可以在后面加上 --verbose
+#pod setup
+#执行 pod repo update更新本地仓库，本地仓库完成后，即可搜索到指定的第三方库
+
+
+workspace 'XYYHToolsWorkSpace.xcworkspace' #workspace文件名
+project 'XYYHTools.xcodeproj' #主工程路径
+
+platform :ios, '13.0'
+
+use_frameworks!
+
+source 'https://github.com/CocoaPods/Specs.git'  #官方仓库的地址
+
+def public_pods
+  pod 'PureLayout'
+  pod 'pop'
+  pod 'IQKeyboardManager'
+  pod 'Alamofire'
+  pod 'YYText',:inhibit_warnings => true
+  #pod 'WCDB.swift'
+  #pod 'Bugly'
+
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
+  #pod 'RxDataSources'
+
+end
+
+########################################################
+
+target 'XYYHTools' do
+  #platform :ios, '13.0'
+  project 'XYYHTools.xcodeproj' #工程路径
+
+  public_pods
+end
