@@ -11,13 +11,13 @@ import Foundation
 enum AppTabbarItemTag : Int, XYEnumTypeAllCaseProtocol {
     
     case 作业     = 0
-    case 班级     = 2
+    case 浏览器     = 2
     case 用户中心  = 3
     
     var isNeedShow : Bool {
         switch self {
         case .作业: return true
-        case .班级: return true
+        case .浏览器: return true
         case .用户中心: return true
         }
     }
@@ -29,9 +29,9 @@ enum AppTabbarItemTag : Int, XYEnumTypeAllCaseProtocol {
             
             return "作业"
             
-        case .班级:
+        case .浏览器:
             
-            return "班级"
+            return "浏览器"
             
         case .用户中心:
             
@@ -58,7 +58,7 @@ enum AppTabbarItemTag : Int, XYEnumTypeAllCaseProtocol {
             
             break
             
-        case .班级:
+        case .浏览器:
             
             normalImgName = "Tabbar_Item_班级\(tag)"
             selectImgName = "Tabbar_Item_班级_Selected\(tag)"
@@ -86,7 +86,7 @@ enum AppTabbarItemTag : Int, XYEnumTypeAllCaseProtocol {
     var isNavigationBarHidden : Bool {
         
         switch self {
-        case .作业, .班级, .用户中心: return false
+        case .作业, .浏览器, .用户中心: return false
         }
     }
     

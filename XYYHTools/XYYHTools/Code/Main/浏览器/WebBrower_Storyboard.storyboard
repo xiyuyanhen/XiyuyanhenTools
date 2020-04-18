@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Web Brower Index View Controller-->
+        <scene sceneID="Vwg-PP-DHC">
+            <objects>
+                <viewController storyboardIdentifier="WebBrowerIndexViewController" id="sPL-pz-bFT" customClass="WebBrowerIndexViewController" customModule="XYYHTools" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c2j-CH-bDa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" showsSearchResultsButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WzH-ZU-7G9">
+                                <rect key="frame" x="50" y="44" width="364" height="56"/>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="keI-np-S0C"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                <connections>
+                                    <outlet property="delegate" destination="sPL-pz-bFT" id="aVp-Fv-bdI"/>
+                                </connections>
+                            </searchBar>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YeM-Gt-6lc">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEN-xn-jh0">
+                                <rect key="frame" x="0.0" y="44" width="50" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="bvS-hC-o3e"/>
+                                </constraints>
+                                <state key="normal" title="滚动"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="WzH-ZU-7G9" firstAttribute="trailing" secondItem="20G-4u-9ey" secondAttribute="trailing" id="4MA-RH-gxc"/>
+                            <constraint firstItem="WzH-ZU-7G9" firstAttribute="bottom" secondItem="KEN-xn-jh0" secondAttribute="bottom" id="4px-5b-qUQ"/>
+                            <constraint firstItem="YeM-Gt-6lc" firstAttribute="top" secondItem="WzH-ZU-7G9" secondAttribute="bottom" id="EFa-JW-v5F"/>
+                            <constraint firstItem="20G-4u-9ey" firstAttribute="trailing" secondItem="YeM-Gt-6lc" secondAttribute="trailing" id="I52-nJ-QM8"/>
+                            <constraint firstItem="WzH-ZU-7G9" firstAttribute="top" secondItem="20G-4u-9ey" secondAttribute="top" id="Kc7-Gt-1NE"/>
+                            <constraint firstItem="20G-4u-9ey" firstAttribute="bottom" secondItem="YeM-Gt-6lc" secondAttribute="bottom" id="XpK-YD-qYi"/>
+                            <constraint firstItem="WzH-ZU-7G9" firstAttribute="leading" secondItem="KEN-xn-jh0" secondAttribute="trailing" id="aw3-dr-SL6"/>
+                            <constraint firstItem="KEN-xn-jh0" firstAttribute="leading" secondItem="20G-4u-9ey" secondAttribute="leading" id="lOt-bg-SkE"/>
+                            <constraint firstItem="KEN-xn-jh0" firstAttribute="top" secondItem="20G-4u-9ey" secondAttribute="top" id="pNx-T0-Ug3"/>
+                            <constraint firstItem="YeM-Gt-6lc" firstAttribute="leading" secondItem="20G-4u-9ey" secondAttribute="leading" id="rfK-Kl-wW1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="20G-4u-9ey"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollBtn" destination="KEN-xn-jh0" id="O6z-yK-dhs"/>
+                        <outlet property="searchBar" destination="WzH-ZU-7G9" id="ucr-Xf-HF1"/>
+                        <outlet property="webView" destination="YeM-Gt-6lc" id="Gks-fA-ghb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wsh-kf-Fzy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-933.33333333333337" y="-60.267857142857139"/>
+        </scene>
+    </scenes>
+</document>

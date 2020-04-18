@@ -352,6 +352,9 @@
 		23B5C8F0243AF18E0044E8AB /* VirtualCurrency_BriefConentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5C8EF243AF18E0044E8AB /* VirtualCurrency_BriefConentView.swift */; };
 		23B5C8F2243AF1F70044E8AB /* RequestUrl_Bitstamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5C8F1243AF1F70044E8AB /* RequestUrl_Bitstamp.swift */; };
 		23B5C8F4243AF40E0044E8AB /* RequestData_Bitstamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5C8F3243AF40E0044E8AB /* RequestData_Bitstamp.swift */; };
+		23FABACF244B1CD100298C77 /* WebBrowerIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FABACE244B1CD100298C77 /* WebBrowerIndexViewController.swift */; };
+		23FABAD1244B1D1800298C77 /* WebBrower_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23FABAD0244B1D1800298C77 /* WebBrower_Storyboard.storyboard */; };
+		23FABAD3244B2AE200298C77 /* WebBrowerIndex_ScrollConfig_AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FABAD2244B2AE200298C77 /* WebBrowerIndex_ScrollConfig_AlertView.swift */; };
 		377F47F4E0D1C039FDB4D5E6 /* Pods_XYYHTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B867E9C6635D2E99D3A01CC3 /* Pods_XYYHTools.framework */; };
 /* End PBXBuildFile section */
 
@@ -789,6 +792,9 @@
 		23B5C8EF243AF18E0044E8AB /* VirtualCurrency_BriefConentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualCurrency_BriefConentView.swift; sourceTree = "<group>"; };
 		23B5C8F1243AF1F70044E8AB /* RequestUrl_Bitstamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestUrl_Bitstamp.swift; sourceTree = "<group>"; };
 		23B5C8F3243AF40E0044E8AB /* RequestData_Bitstamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestData_Bitstamp.swift; sourceTree = "<group>"; };
+		23FABACE244B1CD100298C77 /* WebBrowerIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowerIndexViewController.swift; sourceTree = "<group>"; };
+		23FABAD0244B1D1800298C77 /* WebBrower_Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebBrower_Storyboard.storyboard; sourceTree = "<group>"; };
+		23FABAD2244B2AE200298C77 /* WebBrowerIndex_ScrollConfig_AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowerIndex_ScrollConfig_AlertView.swift; sourceTree = "<group>"; };
 		2634AA4967C07C2D32F44DF6 /* Pods-XYYHTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYYHTools.release.xcconfig"; path = "Target Support Files/Pods-XYYHTools/Pods-XYYHTools.release.xcconfig"; sourceTree = "<group>"; };
 		A9CA967CDDDE42F02310F823 /* Pods-XYYHTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYYHTools.debug.xcconfig"; path = "Target Support Files/Pods-XYYHTools/Pods-XYYHTools.debug.xcconfig"; sourceTree = "<group>"; };
 		B867E9C6635D2E99D3A01CC3 /* Pods_XYYHTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYYHTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1766,6 +1772,7 @@
 			isa = PBXGroup;
 			children = (
 				23B5C8E6243AE1270044E8AB /* 首页 */,
+				23FABACD244B1CA200298C77 /* 浏览器 */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1797,6 +1804,16 @@
 				23B5C8F3243AF40E0044E8AB /* RequestData_Bitstamp.swift */,
 			);
 			path = "虚拟货币";
+			sourceTree = "<group>";
+		};
+		23FABACD244B1CA200298C77 /* 浏览器 */ = {
+			isa = PBXGroup;
+			children = (
+				23FABAD0244B1D1800298C77 /* WebBrower_Storyboard.storyboard */,
+				23FABACE244B1CD100298C77 /* WebBrowerIndexViewController.swift */,
+				23FABAD2244B2AE200298C77 /* WebBrowerIndex_ScrollConfig_AlertView.swift */,
+			);
+			path = "浏览器";
 			sourceTree = "<group>";
 		};
 		5261B158252E205F09686607 /* Frameworks */ = {
@@ -1891,6 +1908,7 @@
 				238781642438E0E900C57B15 /* ZFPlayer.bundle in Resources */,
 				23877F462438D48500C57B15 /* Assets.xcassets in Resources */,
 				238782312438E0E900C57B15 /* BaseNibView.xib in Resources */,
+				23FABAD1244B1D1800298C77 /* WebBrower_Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2054,6 +2072,7 @@
 				235DAB4124398BC4004AFA53 /* XYLabelBriefConfig.swift in Sources */,
 				2387813B2438E0E900C57B15 /* XYEncode.swift in Sources */,
 				238781952438E0E900C57B15 /* UIScrollView+MJExtension.m in Sources */,
+				23FABAD3244B2AE200298C77 /* WebBrowerIndex_ScrollConfig_AlertView.swift in Sources */,
 				238781502438E0E900C57B15 /* XYResourceProtocol.swift in Sources */,
 				2387812B2438E0E900C57B15 /* XYReachabilityManager.swift in Sources */,
 				235DAB5424398CEA004AFA53 /* XYApplication.swift in Sources */,
@@ -2189,6 +2208,7 @@
 				238781852438E0E900C57B15 /* UIImage+Rotation.swift in Sources */,
 				2387811C2438E0E900C57B15 /* XYResult.swift in Sources */,
 				238781682438E0E900C57B15 /* ZFLoadingView.m in Sources */,
+				23FABACF244B1CD100298C77 /* WebBrowerIndexViewController.swift in Sources */,
 				238781C22438E0E900C57B15 /* NSHTTPURLResponse+Haneke.swift in Sources */,
 				238782152438E0E900C57B15 /* StructModelProtocol_Create.swift in Sources */,
 				238781632438E0E900C57B15 /* ZFNetworkSpeedMonitor.m in Sources */,

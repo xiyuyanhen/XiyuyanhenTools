@@ -57,44 +57,21 @@ class AppTabbarController: UITabBarController {
         
         self.addSubNavigationController(self.homeworkContainerNavigationController)
         
-//        for itemTag in AppTabbarItemTag.AllCaseArr {
-//
-//            guard itemTag.isNeedShow else { continue }
-//
-//            switch itemTag {
-//            case .作业:
-//
-//                self.addSubNavigationController(self.homeworkContainerNavigationController)
-//
-//                break
-//
-//            case .班级:
-//
-//                self.addSubNavigationController(self.clazzIndexV2NavigationController)
-//
-//                break
-//
-//            case .用户中心:
-//
-//                self.addSubNavigationController(self.userCenterNavigationController)
-//
-//                break
-//            }
-//        }
+        self.addSubNavigationController(self.webBrowerIndexNavigationController)
     }
+    
+    /// 浏览器首页
+    lazy var webBrowerIndexVC: BaseViewController = {
 
-    /// 班级首页
-    lazy var clazzIndexVC: BaseViewController = {
-
-        let vc = BaseViewController()
+        let vc = WebBrowerIndexViewController.LoadFromStoryboard() ?? WebBrowerIndexViewController()
         vc.bottomBarHidden = false
         
         return vc
     }()
 
-    lazy var clazzIndexV2NavigationController:BaseNavigationController = {
+    lazy var webBrowerIndexNavigationController:BaseNavigationController = {
         
-        return self.newNavigationController(viewController: self.clazzIndexVC, itemTag: AppTabbarItemTag.班级)
+        return self.newNavigationController(viewController: self.webBrowerIndexVC, itemTag: AppTabbarItemTag.浏览器)
     }()
     
     

@@ -24,7 +24,7 @@ class 首页ViewController : BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        RequestData_Bitstamp.Ticker()
+        //RequestData_Bitstamp.Ticker()
         
     }
     
