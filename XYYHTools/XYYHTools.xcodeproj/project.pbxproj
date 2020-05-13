@@ -346,6 +346,9 @@
 		238782562438E0E900C57B15 /* MutableStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238781182438E0E800C57B15 /* MutableStepView.swift */; };
 		238782572438E0E900C57B15 /* Rxswift使用范例.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238781192438E0E800C57B15 /* Rxswift使用范例.swift */; };
 		238782582438E0E900C57B15 /* DevelopNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387811A2438E0E800C57B15 /* DevelopNote.swift */; };
+		23A56922246C3FDC004D2449 /* VirtualCurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A56921246C3FDC004D2449 /* VirtualCurrencyModel.swift */; };
+		23A56925246C4132004D2449 /* HomeworkItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A56923246C4132004D2449 /* HomeworkItemTableViewCell.swift */; };
+		23A56926246C4132004D2449 /* HomeworkItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A56924246C4132004D2449 /* HomeworkItemTableViewCell.xib */; };
 		23B5C8E8243AE14F0044E8AB /* 首页ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5C8E7243AE14F0044E8AB /* 首页ViewController.swift */; };
 		23B5C8EA243AE31A0044E8AB /* 首页_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B5C8E9243AE31A0044E8AB /* 首页_Storyboard.storyboard */; };
 		23B5C8ED243AEDFB0044E8AB /* StockBrief_ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5C8EC243AEDFB0044E8AB /* StockBrief_ContentView.swift */; };
@@ -379,7 +382,7 @@
 		235DAB6F243992D5004AFA53 /* PracticeProcess_TimeSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeProcess_TimeSchedule.swift; sourceTree = "<group>"; };
 		235DAB70243992D5004AFA53 /* PracticeProcessTimeConsumingItem_Timing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeProcessTimeConsumingItem_Timing.swift; sourceTree = "<group>"; };
 		235DAB762439D7E5004AFA53 /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
-		23877F3C2438D48400C57B15 /* XYYHTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XYYHTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23877F3C2438D48400C57B15 /* 我的工具箱.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "我的工具箱.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23877F3F2438D48400C57B15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23877F412438D48400C57B15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		23877F432438D48400C57B15 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -786,6 +789,9 @@
 		238781182438E0E800C57B15 /* MutableStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableStepView.swift; sourceTree = "<group>"; };
 		238781192438E0E800C57B15 /* Rxswift使用范例.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rxswift使用范例.swift"; sourceTree = "<group>"; };
 		2387811A2438E0E800C57B15 /* DevelopNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevelopNote.swift; sourceTree = "<group>"; };
+		23A56921246C3FDC004D2449 /* VirtualCurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualCurrencyModel.swift; sourceTree = "<group>"; };
+		23A56923246C4132004D2449 /* HomeworkItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeworkItemTableViewCell.swift; sourceTree = "<group>"; };
+		23A56924246C4132004D2449 /* HomeworkItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeworkItemTableViewCell.xib; sourceTree = "<group>"; };
 		23B5C8E7243AE14F0044E8AB /* 首页ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "首页ViewController.swift"; sourceTree = "<group>"; };
 		23B5C8E9243AE31A0044E8AB /* 首页_Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "首页_Storyboard.storyboard"; sourceTree = "<group>"; };
 		23B5C8EC243AEDFB0044E8AB /* StockBrief_ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBrief_ContentView.swift; sourceTree = "<group>"; };
@@ -880,7 +886,7 @@
 		23877F3D2438D48400C57B15 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23877F3C2438D48400C57B15 /* XYYHTools.app */,
+				23877F3C2438D48400C57B15 /* 我的工具箱.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1768,6 +1774,14 @@
 			path = XYEffect;
 			sourceTree = "<group>";
 		};
+		23A56920246C35F0004D2449 /* 金融动态 */ = {
+			isa = PBXGroup;
+			children = (
+				23B5C8EE243AF1330044E8AB /* 虚拟货币 */,
+			);
+			path = "金融动态";
+			sourceTree = "<group>";
+		};
 		23B5C8E5243AE1120044E8AB /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -1780,10 +1794,10 @@
 		23B5C8E6243AE1270044E8AB /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
-				23B5C8EE243AF1330044E8AB /* 虚拟货币 */,
-				23B5C8EB243AED750044E8AB /* Views */,
 				23B5C8E9243AE31A0044E8AB /* 首页_Storyboard.storyboard */,
 				23B5C8E7243AE14F0044E8AB /* 首页ViewController.swift */,
+				23B5C8EB243AED750044E8AB /* Views */,
+				23A56920246C35F0004D2449 /* 金融动态 */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -1791,6 +1805,8 @@
 		23B5C8EB243AED750044E8AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				23A56923246C4132004D2449 /* HomeworkItemTableViewCell.swift */,
+				23A56924246C4132004D2449 /* HomeworkItemTableViewCell.xib */,
 				23B5C8EC243AEDFB0044E8AB /* StockBrief_ContentView.swift */,
 			);
 			path = Views;
@@ -1802,6 +1818,7 @@
 				23B5C8EF243AF18E0044E8AB /* VirtualCurrency_BriefConentView.swift */,
 				23B5C8F1243AF1F70044E8AB /* RequestUrl_Bitstamp.swift */,
 				23B5C8F3243AF40E0044E8AB /* RequestData_Bitstamp.swift */,
+				23A56921246C3FDC004D2449 /* VirtualCurrencyModel.swift */,
 			);
 			path = "虚拟货币";
 			sourceTree = "<group>";
@@ -1853,7 +1870,7 @@
 			);
 			name = XYYHTools;
 			productName = XYYHTools;
-			productReference = 23877F3C2438D48400C57B15 /* XYYHTools.app */;
+			productReference = 23877F3C2438D48400C57B15 /* 我的工具箱.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1906,6 +1923,7 @@
 				238781462438E0E900C57B15 /* XYLogBrowseTableViewHeaderView.xib in Resources */,
 				238781942438E0E900C57B15 /* MJRefresh.bundle in Resources */,
 				238781642438E0E900C57B15 /* ZFPlayer.bundle in Resources */,
+				23A56926246C4132004D2449 /* HomeworkItemTableViewCell.xib in Resources */,
 				23877F462438D48500C57B15 /* Assets.xcassets in Resources */,
 				238782312438E0E900C57B15 /* BaseNibView.xib in Resources */,
 				23FABAD1244B1D1800298C77 /* WebBrower_Storyboard.storyboard in Resources */,
@@ -2033,6 +2051,7 @@
 				238781982438E0E900C57B15 /* MJRefreshBackStateFooter.m in Sources */,
 				238781282438E0E900C57B15 /* Reachability.swift in Sources */,
 				238782382438E0E900C57B15 /* SectionIndexViewItemPreview.swift in Sources */,
+				23A56922246C3FDC004D2449 /* VirtualCurrencyModel.swift in Sources */,
 				238781822438E0E900C57B15 /* SKPagingScrollView.swift in Sources */,
 				238781E02438E0E900C57B15 /* MJNIndexView.m in Sources */,
 				238781532438E0E900C57B15 /* ZFPlayerGestureControl.m in Sources */,
@@ -2080,6 +2099,7 @@
 				238781542438E0E900C57B15 /* ZFPlayerController.m in Sources */,
 				238781582438E0E900C57B15 /* ZFPlayerNotification.m in Sources */,
 				238781432438E0E900C57B15 /* WCDB_XYLogMsg.swift in Sources */,
+				23A56925246C4132004D2449 /* HomeworkItemTableViewCell.swift in Sources */,
 				238781BC2438E0E900C57B15 /* Log.swift in Sources */,
 				238782172438E0E900C57B15 /* XYObject.swift in Sources */,
 				2387824D2438E0E900C57B15 /* TCMessageView.swift in Sources */,
@@ -2439,7 +2459,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xiyuyanhen.XYYHTools;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "我的工具箱";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/XYYHTools/Code/Base/OCToSwiftBridging.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = OCToSwiftBridging.h;
 				SWIFT_VERSION = 5.0;
@@ -2462,7 +2482,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xiyuyanhen.XYYHTools;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "我的工具箱";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/XYYHTools/Code/Base/OCToSwiftBridging.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = OCToSwiftBridging.h;
 				SWIFT_VERSION = 5.0;

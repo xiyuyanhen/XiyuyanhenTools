@@ -10,7 +10,7 @@ import Foundation
 
 struct RequestData_Bitstamp {
     
-    static func Ticker() {
+    static func Ticker(completion:@escaping CompletionElementBlockHandler<VirtualCurrencyModel>) {
         
         RequestConfig(url: RequestUrl_Bitstamp.Ticker, parametersOrNil: nil).get { (requestState) in
             
@@ -18,27 +18,21 @@ struct RequestData_Bitstamp {
             case .Complete(let completeState):
                 
                 switch completeState {
-                case .Success(let dataDic):
+                case .Dic(let dic):
                     
-                    
+                    completion(VirtualCurrencyModel.CreateModel(dataDic: dic as NSDictionary, extraData: "BTC"))
                     
                     return
                     
-                case .Failure(let dataDic):
+                case .Data(_):
                     
-                    if let note: String = dataDic.xyObject("note"),
-                        note.isNotEmpty {
-                        
-                        ShowSingleBtnAlertView(title: "", message: note)
-                    }
-                    
-                    break
-                default:
                     break
                 }
                 break
             default: break
             }
+            
+            completion(nil)
         }
     }
 }

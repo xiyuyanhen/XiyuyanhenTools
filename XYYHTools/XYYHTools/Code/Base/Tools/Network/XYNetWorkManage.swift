@@ -269,46 +269,17 @@ extension XYNetWorkManage {
         
         /// 未知
         case Data(Data)
-        /// 失败 "00"
-        case Failure(RequestDicData)
         /// 成功 "11"
-        case Success(RequestDicData)
-        /// 需要重新登录 "22"
-        case NeedLogin(RequestDicData)
-        
-        static let TypeCode_Data: String = "Data"
-        static let TypeCode_Failure: String = "00"
-        static let TypeCode_Success: String = "11"
-        static let TypeCode_NeedLogin: String = "22"
-        
-        /// 类型码
-        fileprivate var typeCode: String {
-            switch self {
-            case .Data(_): return XYRequestCompleteState.TypeCode_Data
-            case .Failure(_): return XYRequestCompleteState.TypeCode_Failure
-            case .Success(_): return XYRequestCompleteState.TypeCode_Success
-            case .NeedLogin(_): return XYRequestCompleteState.TypeCode_NeedLogin
-            }
-        }
+        case Dic(RequestDicData)
         
         fileprivate static func StateByData(_ data: Data) -> XYRequestCompleteState {
             
-            guard let dic = RequestDicData.CreateWith(jsondata: data),
-                let stateText: String = dic.xyObject("state") else {
+            guard let dic = RequestDicData.CreateWith(jsondata: data) else {
                 
                 return self.Data(data)
             }
             
-            switch stateText {
-                
-            case XYRequestCompleteState.TypeCode_Failure: return self.Failure(dic)
-                
-            case XYRequestCompleteState.TypeCode_Success: return self.Success(dic)
-                
-            case XYRequestCompleteState.TypeCode_NeedLogin: return self.NeedLogin(dic)
-                
-            default: return self.Data(data)
-            }
+            return self.Dic(dic)
         }
         
         var dataMsg: String {
@@ -330,7 +301,7 @@ extension XYNetWorkManage {
                 
                 return result
                 
-            case .Failure(let dataDic), .Success(let dataDic), .NeedLogin(let dataDic):
+            case .Dic(let dataDic):
                 
                 return dataDic.jsonDescription()
             }
@@ -420,13 +391,6 @@ extension XYNetWorkManage {
                         
                         if requestConfig.autoHandle {
                                     
-                            switch completeState {
-                            case .NeedLogin(let dataDic):
-                                
-                                break
-                                
-                            default: break
-                            }
                         }
                     }
                     
