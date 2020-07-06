@@ -352,6 +352,7 @@
 		2399EFBA24B30AAB00741E0B /* WCDB_ReadMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399EFB524B30AAB00741E0B /* WCDB_ReadMe.swift */; };
 		2399EFBB24B30AAB00741E0B /* WCDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399EFB724B30AAB00741E0B /* WCDBManager.swift */; };
 		2399EFBC24B30AAB00741E0B /* XYWDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399EFB824B30AAB00741E0B /* XYWDBManager.swift */; };
+		2399EFBF24B32D4200741E0B /* Loading-effect-Balls-200.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2399EFBE24B32D4200741E0B /* Loading-effect-Balls-200.gif */; };
 		23A56922246C3FDC004D2449 /* VirtualCurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A56921246C3FDC004D2449 /* VirtualCurrencyModel.swift */; };
 		23A56925246C4132004D2449 /* HomeworkItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A56923246C4132004D2449 /* HomeworkItemTableViewCell.swift */; };
 		23A56926246C4132004D2449 /* HomeworkItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A56924246C4132004D2449 /* HomeworkItemTableViewCell.xib */; };
@@ -801,6 +802,7 @@
 		2399EFB524B30AAB00741E0B /* WCDB_ReadMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCDB_ReadMe.swift; sourceTree = "<group>"; };
 		2399EFB724B30AAB00741E0B /* WCDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCDBManager.swift; sourceTree = "<group>"; };
 		2399EFB824B30AAB00741E0B /* XYWDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYWDBManager.swift; sourceTree = "<group>"; };
+		2399EFBE24B32D4200741E0B /* Loading-effect-Balls-200.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Loading-effect-Balls-200.gif"; sourceTree = "<group>"; };
 		23A56921246C3FDC004D2449 /* VirtualCurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualCurrencyModel.swift; sourceTree = "<group>"; };
 		23A56923246C4132004D2449 /* HomeworkItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeworkItemTableViewCell.swift; sourceTree = "<group>"; };
 		23A56924246C4132004D2449 /* HomeworkItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeworkItemTableViewCell.xib; sourceTree = "<group>"; };
@@ -907,11 +909,11 @@
 		23877F3E2438D48400C57B15 /* XYYHTools */ = {
 			isa = PBXGroup;
 			children = (
-				23877F452438D48500C57B15 /* Assets.xcassets */,
 				23877F4A2438D48500C57B15 /* LaunchScreen.storyboard */,
 				23877F3F2438D48400C57B15 /* AppDelegate.swift */,
 				23877F412438D48400C57B15 /* SceneDelegate.swift */,
 				23877F432438D48400C57B15 /* ContentView.swift */,
+				2399EFBD24B32D4200741E0B /* Resouce */,
 				23877F532438E0D500C57B15 /* Code */,
 				23877F4D2438D48500C57B15 /* Info.plist */,
 				23877F472438D48500C57B15 /* Preview Content */,
@@ -1824,6 +1826,15 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		2399EFBD24B32D4200741E0B /* Resouce */ = {
+			isa = PBXGroup;
+			children = (
+				23877F452438D48500C57B15 /* Assets.xcassets */,
+				2399EFBE24B32D4200741E0B /* Loading-effect-Balls-200.gif */,
+			);
+			path = Resouce;
+			sourceTree = "<group>";
+		};
 		23A56920246C35F0004D2449 /* 金融动态 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1963,6 +1974,7 @@
 			files = (
 				23B5C8EA243AE31A0044E8AB /* 首页_Storyboard.storyboard in Resources */,
 				238781BF2438E0E900C57B15 /* Info-iOS.plist in Resources */,
+				2399EFBF24B32D4200741E0B /* Loading-effect-Balls-200.gif in Resources */,
 				2387816E2438E0E900C57B15 /* TypeMenuTabCell.xib in Resources */,
 				2387818E2438E0E900C57B15 /* SKPhotoBrowser.bundle in Resources */,
 				2387823C2438E0E900C57B15 /* XYSwitch.xib in Resources */,

@@ -12,19 +12,19 @@ extension HomeworkItemTableViewCell {
     
     func setupsBy(model: VirtualCurrencyModel) {
         
-        self.dateLabel.setText(model.timestampOrNil)
+        self.dateLabel.setText("\(model.timestampOrNil ?? 0)")
 
         self.nameLabel.setText(model.modelId)
 
         self.detailLabel.setText(nil)
 
-        self.clazzNameLabel.setText("当前:\(model.vwapOrNil ?? "-")")
+        self.clazzNameLabel.setText("当前:\(model.vwapOrNil?.xyDecimalLength(2, trimmingEndZD: true) ?? "-")")
 
-        self.scoreLabel.setText("开盘:\(model.openOrNil?.stringValue ?? "-")")
+        self.scoreLabel.setText("开盘:\(model.openOrNil?.xyDecimalLength(2, trimmingEndZD: true) ?? "-")")
 
-        self.completedCountLabel.setText("最低:\(model.lowOrNil ?? "-")")
+        self.completedCountLabel.setText("最低:\(model.lowOrNil?.xyDecimalLength(2, trimmingEndZD: true) ?? "-")")
 
-        self.statusLabel.setText("最高:\(model.highOrNil ?? "-")")
+        self.statusLabel.setText("最高:\(model.highOrNil?.xyDecimalLength(2, trimmingEndZD: true) ?? "-")")
     }
 }
 

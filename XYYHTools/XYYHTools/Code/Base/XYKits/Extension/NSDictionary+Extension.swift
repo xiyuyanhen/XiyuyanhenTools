@@ -107,6 +107,118 @@ extension NSDictionary {
         
         return value
     }
+    
+    /**
+     *    @description 获取相应Float类型的数据(如果数据为数字或者数字字符串)
+     *
+     *    @param    forKey    数据索引
+     *
+     *    @return   Float类型的数据
+     */
+    func xyFloat(_ forKey: String) -> Float? {
+        
+        guard let value = self.xyObjectValue(forKey) else { return nil }
+        
+        if let float = value as? Float {
+            
+            return float
+            
+        }else if let number = value as? NSNumber {
+            
+            return number.floatValue
+            
+        }else if let text = value as? String,
+            let float = text.xyToFloat() {
+            
+            return float
+        }
+        
+        return nil
+    }
+    
+    /**
+     *    @description 获取相应Int类型的数据(如果数据为数字或者数字字符串)
+     *
+     *    @param    forKey    数据索引
+     *
+     *    @return   Int类型的数据
+     */
+    func xyInt(_ forKey: String) -> Int? {
+        
+        guard let value = self.xyObjectValue(forKey) else { return nil }
+        
+        if let intValue = value as? Int {
+            
+            return intValue
+            
+        }else if let number = value as? NSNumber {
+            
+            return number.intValue
+            
+        }else if let text = value as? String,
+            let number = text.toNumberOrNil {
+            
+            return number.intValue
+        }
+        
+        return nil
+    }
+    
+    /**
+     *    @description 获取相应Bool类型的数据(如果数据为数字或者数字字符串)
+     *
+     *    @param    forKey    数据索引
+     *
+     *    @return   Bool类型的数据
+     */
+    func xyBool(_ forKey: String) -> Bool? {
+        
+        guard let value = self.xyObjectValue(forKey) else { return nil }
+        
+        if let bool = value as? Bool {
+            
+            return bool
+            
+        }else if let number = value as? NSNumber {
+            
+            return number.boolValue
+            
+        }else if let text = value as? String,
+            text.isNotEmpty {
+            
+            switch text {
+            case "0", "false": return false
+            case "1", "true": return true
+            default: break
+            }
+        }
+        
+        return nil
+    }
+    
+    /**
+     *    @description 获取相应String类型的数据
+     *
+     *    @param    forKey    数据索引
+     *
+     *    @return   String类型的数据
+     */
+    func xyString(_ forKey: String) -> String? {
+        
+        guard let value = self.xyObjectValue(forKey) else { return nil }
+        
+        if let text = value as? String {
+            
+            return text
+            
+        }else if let number = value as? NSNumber {
+            
+            return number.stringValue
+            
+        }
+        
+        return nil
+    }
 }
 
 extension NSDictionary {
