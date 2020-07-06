@@ -346,6 +346,12 @@
 		238782562438E0E900C57B15 /* MutableStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238781182438E0E800C57B15 /* MutableStepView.swift */; };
 		238782572438E0E900C57B15 /* Rxswift使用范例.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238781192438E0E800C57B15 /* Rxswift使用范例.swift */; };
 		238782582438E0E900C57B15 /* DevelopNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387811A2438E0E800C57B15 /* DevelopNote.swift */; };
+		2399EFAF24B302B200741E0B /* XYBmobTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399EFAE24B302B200741E0B /* XYBmobTools.swift */; };
+		2399EFB124B3040F00741E0B /* XYAppDataShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399EFB024B3040F00741E0B /* XYAppDataShare.swift */; };
+		2399EFB924B30AAB00741E0B /* XYWCDBProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399EFB424B30AAB00741E0B /* XYWCDBProtocol.swift */; };
+		2399EFBA24B30AAB00741E0B /* WCDB_ReadMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399EFB524B30AAB00741E0B /* WCDB_ReadMe.swift */; };
+		2399EFBB24B30AAB00741E0B /* WCDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399EFB724B30AAB00741E0B /* WCDBManager.swift */; };
+		2399EFBC24B30AAB00741E0B /* XYWDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399EFB824B30AAB00741E0B /* XYWDBManager.swift */; };
 		23A56922246C3FDC004D2449 /* VirtualCurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A56921246C3FDC004D2449 /* VirtualCurrencyModel.swift */; };
 		23A56925246C4132004D2449 /* HomeworkItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A56923246C4132004D2449 /* HomeworkItemTableViewCell.swift */; };
 		23A56926246C4132004D2449 /* HomeworkItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A56924246C4132004D2449 /* HomeworkItemTableViewCell.xib */; };
@@ -789,6 +795,12 @@
 		238781182438E0E800C57B15 /* MutableStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableStepView.swift; sourceTree = "<group>"; };
 		238781192438E0E800C57B15 /* Rxswift使用范例.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rxswift使用范例.swift"; sourceTree = "<group>"; };
 		2387811A2438E0E800C57B15 /* DevelopNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevelopNote.swift; sourceTree = "<group>"; };
+		2399EFAE24B302B200741E0B /* XYBmobTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBmobTools.swift; sourceTree = "<group>"; };
+		2399EFB024B3040F00741E0B /* XYAppDataShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYAppDataShare.swift; sourceTree = "<group>"; };
+		2399EFB424B30AAB00741E0B /* XYWCDBProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYWCDBProtocol.swift; sourceTree = "<group>"; };
+		2399EFB524B30AAB00741E0B /* WCDB_ReadMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCDB_ReadMe.swift; sourceTree = "<group>"; };
+		2399EFB724B30AAB00741E0B /* WCDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCDBManager.swift; sourceTree = "<group>"; };
+		2399EFB824B30AAB00741E0B /* XYWDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYWDBManager.swift; sourceTree = "<group>"; };
 		23A56921246C3FDC004D2449 /* VirtualCurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualCurrencyModel.swift; sourceTree = "<group>"; };
 		23A56923246C4132004D2449 /* HomeworkItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeworkItemTableViewCell.swift; sourceTree = "<group>"; };
 		23A56924246C4132004D2449 /* HomeworkItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeworkItemTableViewCell.xib; sourceTree = "<group>"; };
@@ -823,6 +835,7 @@
 			isa = PBXGroup;
 			children = (
 				235DAB4324398CEA004AFA53 /* XYApplication.swift */,
+				2399EFB024B3040F00741E0B /* XYAppDataShare.swift */,
 				235DAB4424398CEA004AFA53 /* ProjectSetting.swift */,
 				235DAB4524398CEA004AFA53 /* RequestUrl.swift */,
 				235DAB4A24398CEA004AFA53 /* XYAppVersionManager */,
@@ -947,6 +960,8 @@
 		23877F562438E0E800C57B15 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				2399EFB224B30AAB00741E0B /* XYWCDB */,
+				2399EFAD24B3029A00741E0B /* XYBmobTools */,
 				23877F572438E0E800C57B15 /* XYCache.swift */,
 				23877F582438E0E800C57B15 /* XYError&Result */,
 				23877F5D2438E0E800C57B15 /* XYFileFormat.swift */,
@@ -1774,6 +1789,41 @@
 			path = XYEffect;
 			sourceTree = "<group>";
 		};
+		2399EFAD24B3029A00741E0B /* XYBmobTools */ = {
+			isa = PBXGroup;
+			children = (
+				2399EFAE24B302B200741E0B /* XYBmobTools.swift */,
+			);
+			path = XYBmobTools;
+			sourceTree = "<group>";
+		};
+		2399EFB224B30AAB00741E0B /* XYWCDB */ = {
+			isa = PBXGroup;
+			children = (
+				2399EFB324B30AAB00741E0B /* Models */,
+				2399EFB624B30AAB00741E0B /* Manager */,
+			);
+			path = XYWCDB;
+			sourceTree = "<group>";
+		};
+		2399EFB324B30AAB00741E0B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2399EFB424B30AAB00741E0B /* XYWCDBProtocol.swift */,
+				2399EFB524B30AAB00741E0B /* WCDB_ReadMe.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2399EFB624B30AAB00741E0B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2399EFB724B30AAB00741E0B /* WCDBManager.swift */,
+				2399EFB824B30AAB00741E0B /* XYWDBManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		23A56920246C35F0004D2449 /* 金融动态 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1993,6 +2043,7 @@
 				238781F92438E0E900C57B15 /* UIView+Extension.swift in Sources */,
 				238781B12438E0E900C57B15 /* LTAdvancedManager.swift in Sources */,
 				238781D62438E0E900C57B15 /* mz_strm_mem.c in Sources */,
+				2399EFB124B3040F00741E0B /* XYAppDataShare.swift in Sources */,
 				238781C42438E0E900C57B15 /* CGSize+Swift.swift in Sources */,
 				238781DE2438E0E900C57B15 /* mz_strm.c in Sources */,
 				2387817A2438E0E900C57B15 /* SKMesurement.swift in Sources */,
@@ -2027,6 +2078,7 @@
 				238781272438E0E900C57B15 /* XYNetWorkManage.swift in Sources */,
 				2387815E2438E0E900C57B15 /* ZFAVPlayerManager.m in Sources */,
 				238781322438E0E900C57B15 /* XYLinkedFramesList.swift in Sources */,
+				2399EFB924B30AAB00741E0B /* XYWCDBProtocol.swift in Sources */,
 				2387817D2438E0E900C57B15 /* SKIndicatorView.swift in Sources */,
 				238781A72438E0E900C57B15 /* FSPagerViewCell.swift in Sources */,
 				238781772438E0E900C57B15 /* STKDataSource.m in Sources */,
@@ -2131,6 +2183,7 @@
 				238781CB2438E0E900C57B15 /* UIImageView+Haneke.swift in Sources */,
 				238781512438E0E900C57B15 /* XYResourceAddress.swift in Sources */,
 				2387817C2438E0E900C57B15 /* SKPaginationView.swift in Sources */,
+				2399EFBC24B30AAB00741E0B /* XYWDBManager.swift in Sources */,
 				238781DA2438E0E900C57B15 /* mz_os.c in Sources */,
 				238781D42438E0E900C57B15 /* mz_zip_rw.c in Sources */,
 				2387814B2438E0E900C57B15 /* XYLogPrintTarget.swift in Sources */,
@@ -2154,6 +2207,7 @@
 				23B5C8F2243AF1F70044E8AB /* RequestUrl_Bitstamp.swift in Sources */,
 				2387823B2438E0E900C57B15 /* DataNotNormalView.swift in Sources */,
 				238781F62438E0E900C57B15 /* UILabel+Extension.swift in Sources */,
+				2399EFBB24B30AAB00741E0B /* WCDBManager.swift in Sources */,
 				238781E92438E0E900C57B15 /* XYViewExtensionReuseIdentifierProtocol.swift in Sources */,
 				238781362438E0E900C57B15 /* XYFileManager.swift in Sources */,
 				238782272438E0E900C57B15 /* BaseImageView.swift in Sources */,
@@ -2233,6 +2287,7 @@
 				238782152438E0E900C57B15 /* StructModelProtocol_Create.swift in Sources */,
 				238781632438E0E900C57B15 /* ZFNetworkSpeedMonitor.m in Sources */,
 				238781602438E0E900C57B15 /* UIView+ZFFrame.m in Sources */,
+				2399EFAF24B302B200741E0B /* XYBmobTools.swift in Sources */,
 				238781872438E0E900C57B15 /* SKCaptionView.swift in Sources */,
 				2387811D2438E0E900C57B15 /* XYError.swift in Sources */,
 				238782342438E0E900C57B15 /* BaseView.swift in Sources */,
@@ -2305,6 +2360,7 @@
 				2387819A2438E0E900C57B15 /* MJRefreshAutoStateFooter.m in Sources */,
 				238781342438E0E900C57B15 /* BuglyManager.swift in Sources */,
 				238781A62438E0E900C57B15 /* FSPageViewTransformer.swift in Sources */,
+				2399EFBA24B30AAB00741E0B /* WCDB_ReadMe.swift in Sources */,
 				238782402438E0E900C57B15 /* XYBannerPageControl.swift in Sources */,
 				238782132438E0E900C57B15 /* XYModelWithId.swift in Sources */,
 				238782122438E0E900C57B15 /* XYCopyProtocol.swift in Sources */,

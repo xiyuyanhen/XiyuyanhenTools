@@ -23,12 +23,14 @@ def public_pods
   pod 'IQKeyboardManager'
   pod 'Alamofire'
   pod 'YYText',:inhibit_warnings => true
-  #pod 'WCDB.swift'
+  pod 'WCDB.swift'
   #pod 'Bugly'
 
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
   #pod 'RxDataSources'
+
+  pod 'BmobSDK'
 
 end
 

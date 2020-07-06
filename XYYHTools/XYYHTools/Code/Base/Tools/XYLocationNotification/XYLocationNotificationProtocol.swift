@@ -10,6 +10,8 @@ import Foundation
 
 protocol XYLocationNotificationProtocol : XYEnumTypeAllCaseProtocol {
     
+    /// 自定义通知名称
+    func customName() -> NSNotification.Name?
 }
 
 extension XYLocationNotificationProtocol {
@@ -97,6 +99,11 @@ extension XYLocationNotificationProtocol {
      *    @return   NSNotification.Name
      */
     func name() -> NSNotification.Name {
+        
+        if let customName = self.customName() {
+            
+            return customName
+        }
         
         let resultName = "XYNotificationName_\(self.enumName)_\(self.name)"
         

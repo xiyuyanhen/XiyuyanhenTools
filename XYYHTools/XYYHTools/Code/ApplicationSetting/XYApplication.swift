@@ -82,6 +82,12 @@ class XYApplication: UIApplication {
         
         self.rxRemoteEventSubtype.onNext(event.subtype)
     }
+    
+    /// 共享数据
+    lazy var dataShare: XYAppDataShare = {
+
+        return XYAppDataShare()
+    }()
 }
 
 extension XYApplication {

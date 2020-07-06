@@ -33,5 +33,7 @@
 
 #import "TypeMenu.h"
 
+#import <BmobSDK/Bmob.h>
+
 #endif /* OCToSwiftBridging_h */
 

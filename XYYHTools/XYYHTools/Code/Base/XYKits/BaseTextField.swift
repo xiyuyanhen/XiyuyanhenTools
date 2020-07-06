@@ -12,8 +12,11 @@ import RxSwift
 /// 本地通知: TextField
 enum LN_TextField : XYLocationNotificationProtocol {
     
+    func customName() -> NSNotification.Name? { return nil }
+    
     /// 所有输入框视图退出第一响应者
     case ResignFirstResponder
+    
     
 }
 
