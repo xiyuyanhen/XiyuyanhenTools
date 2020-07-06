@@ -65,6 +65,8 @@ extension XYBmobTools {
         
         return "2adfc3ce91f81a3812eade2fb0f7920c"
     }
+    
+    // 开发文档地址 http://doc.bmob.cn/data/ios/swift_develop_doc/#_1
 }
 
 extension XYBmobTools {
