@@ -40,9 +40,6 @@ class AppTabbarController: UITabBarController {
      */
     func setups() {
         
-        //若没有地区和年级信息，设置默认的地区和年级信息
-//        LocationGradeModel.DefaultLocationGlazz()
-        
         self.refreshChildVC()
     }
     
@@ -55,10 +52,26 @@ class AppTabbarController: UITabBarController {
         
         //添加模块
         
-        self.addSubNavigationController(self.homeworkContainerNavigationController)
+        self.addSubNavigationController(self.indexContainerNavigationController)
         
         self.addSubNavigationController(self.webBrowerIndexNavigationController)
+        
+        self.addSubNavigationController(self.debugToolsMainManagerNavigationController)
     }
+    
+    /// 首页
+    lazy var indexContainerVC: 首页ViewController = {
+        
+        let vc = 首页ViewController.LoadFromStoryboard() ?? 首页ViewController()
+        vc.bottomBarHidden = false
+
+        return vc
+    }()
+
+    lazy var indexContainerNavigationController: BaseNavigationController = {
+        
+        return self.newNavigationController(viewController: self.indexContainerVC, itemTag: AppTabbarItemTag.首页)
+    }()
     
     /// 浏览器首页
     lazy var webBrowerIndexVC: BaseViewController = {
@@ -73,38 +86,23 @@ class AppTabbarController: UITabBarController {
         
         return self.newNavigationController(viewController: self.webBrowerIndexVC, itemTag: AppTabbarItemTag.浏览器)
     }()
-    
-    
-    /// 首页
-    lazy var homeworkContainerVC: 首页ViewController = {
-        
-        let vc = 首页ViewController.LoadFromStoryboard() ?? 首页ViewController()
-        vc.bottomBarHidden = false
 
-        return vc
-    }()
-
-    lazy var homeworkContainerNavigationController: BaseNavigationController = {
+    /// 调试中心
+    lazy var debugToolsMainManagerVC: DebugToolsMainManagerViewController = {
         
-        return self.newNavigationController(viewController: self.homeworkContainerVC, itemTag: AppTabbarItemTag.作业)
-    }()
-
-    /// 用户中心
-    lazy var userCenterVC: BaseViewController = {
-        
-        let vc = BaseViewController()
+        let vc = DebugToolsMainManagerViewController()
         vc.bottomBarHidden = false
         
         return vc
     }()
     
-    lazy var userCenterNavigationController:BaseNavigationController = {
+    lazy var debugToolsMainManagerNavigationController:BaseNavigationController = {
         
-        return self.newNavigationController(viewController: self.userCenterVC, itemTag: AppTabbarItemTag.用户中心)
+        return self.newNavigationController(viewController: self.debugToolsMainManagerVC, itemTag: AppTabbarItemTag.调试中心)
     }()
     
     //默认显示的模块
-    var currentTag:AppTabbarItemTag = .作业
+    var currentTag: AppTabbarItemTag = .首页
     
 }
 
@@ -190,48 +188,25 @@ extension AppTabbarController {
     func newNavigationController(viewController:UIViewController, itemTag:AppTabbarItemTag) -> BaseNavigationController {
         
         let navigationController = BaseNavigationController.init(xyRootViewController: viewController)
-        
-        // title
-        //        navigationController.tabBarItem.titlePositionAdjustment = UIOffsetMake(30, -10)
-        navigationController.tabBarItem.title = itemTag.title
-        
-        // Images
-        let images = itemTag.images
-        navigationController.tabBarItem.imageInsets = UIEdgeInsetsMake(0, 0 , 0, 0)
-        
-        if var nImg = images.nImg {
-            
-            //            nImg = nImg.imageResize(size: CGSize(width: 30, height: 30));
-            nImg = nImg.withRenderingMode(.alwaysOriginal)
-            
-            navigationController.tabBarItem.image = nImg
-        }
-        
-        if var sImg = images.sImg {
-            
-            //            sImg = sImg.imageResize(size: CGSize(width: 30, height: 30));
-            sImg = sImg.withRenderingMode(.alwaysOriginal)
-            
-            navigationController.tabBarItem.selectedImage = sImg
-        }
+    
+        navigationController.tabBarItem.title = itemTag.name
+        navigationController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: -5, vertical: 0)
         
         navigationController.tabBarItem.tag = itemTag.rawValue
         navigationController.isNavigationBarHidden = itemTag.isNavigationBarHidden
         
         if #available(iOS 10.0, *) {
             
-            navigationController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font:XYFont.Font(size: 12)], for: UIControl.State.selected)
+            navigationController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font:XYFont.Font(size: 16)], for: UIControl.State.selected)
             
-            navigationController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font:XYFont.Font(size: 12)], for: UIControl.State.normal)
+            navigationController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font:XYFont.Font(size: 16)], for: UIControl.State.normal)
             
         }else {
             
-            navigationController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:XYColor(custom: .main).uicolor, NSAttributedString.Key.font:XYFont.Font(size: 12)], for: UIControl.State.selected)
+            navigationController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:XYColor(custom: .main).uicolor, NSAttributedString.Key.font:XYFont.Font(size: 16)], for: UIControl.State.selected)
             
-            navigationController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:XYColor(custom: .xcccccc).uicolor, NSAttributedString.Key.font:XYFont.Font(size: 12)], for: UIControl.State.normal)
+            navigationController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:XYColor(custom: .xcccccc).uicolor, NSAttributedString.Key.font:XYFont.Font(size: 16)], for: UIControl.State.normal)
         }
-        
-        
         
         return navigationController
     }

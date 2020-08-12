@@ -26,6 +26,11 @@
 		235DAB74243992D5004AFA53 /* PracticeProcess_TimeSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DAB6F243992D5004AFA53 /* PracticeProcess_TimeSchedule.swift */; };
 		235DAB75243992D5004AFA53 /* PracticeProcessTimeConsumingItem_Timing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DAB70243992D5004AFA53 /* PracticeProcessTimeConsumingItem_Timing.swift */; };
 		235DAB772439D7FA004AFA53 /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 235DAB762439D7E5004AFA53 /* libiconv.2.4.0.tbd */; };
+		2375EC4924E4301E0012F788 /* DebugToolsManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4424E4301E0012F788 /* DebugToolsManage.swift */; };
+		2375EC4A24E4301E0012F788 /* DebugToolsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4524E4301E0012F788 /* DebugToolsTableViewCell.swift */; };
+		2375EC4B24E4301E0012F788 /* DebugToolsModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4624E4301E0012F788 /* DebugToolsModelType.swift */; };
+		2375EC4C24E4301E0012F788 /* DebugToolsMainManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4724E4301E0012F788 /* DebugToolsMainManagerViewController.swift */; };
+		2375EC4D24E4301E0012F788 /* DebugToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4824E4301E0012F788 /* DebugToolsViewController.swift */; };
 		23877F402438D48400C57B15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23877F3F2438D48400C57B15 /* AppDelegate.swift */; };
 		23877F422438D48400C57B15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23877F412438D48400C57B15 /* SceneDelegate.swift */; };
 		23877F442438D48400C57B15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23877F432438D48400C57B15 /* ContentView.swift */; };
@@ -389,6 +394,11 @@
 		235DAB6F243992D5004AFA53 /* PracticeProcess_TimeSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeProcess_TimeSchedule.swift; sourceTree = "<group>"; };
 		235DAB70243992D5004AFA53 /* PracticeProcessTimeConsumingItem_Timing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeProcessTimeConsumingItem_Timing.swift; sourceTree = "<group>"; };
 		235DAB762439D7E5004AFA53 /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
+		2375EC4424E4301E0012F788 /* DebugToolsManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsManage.swift; sourceTree = "<group>"; };
+		2375EC4524E4301E0012F788 /* DebugToolsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsTableViewCell.swift; sourceTree = "<group>"; };
+		2375EC4624E4301E0012F788 /* DebugToolsModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsModelType.swift; sourceTree = "<group>"; };
+		2375EC4724E4301E0012F788 /* DebugToolsMainManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsMainManagerViewController.swift; sourceTree = "<group>"; };
+		2375EC4824E4301E0012F788 /* DebugToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsViewController.swift; sourceTree = "<group>"; };
 		23877F3C2438D48400C57B15 /* 我的工具箱.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "我的工具箱.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23877F3F2438D48400C57B15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23877F412438D48400C57B15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -886,6 +896,18 @@
 				235DAB70243992D5004AFA53 /* PracticeProcessTimeConsumingItem_Timing.swift */,
 			);
 			path = PracticeProcessTimeConsuming;
+			sourceTree = "<group>";
+		};
+		2375EC4324E4301E0012F788 /* DebugTools */ = {
+			isa = PBXGroup;
+			children = (
+				2375EC4424E4301E0012F788 /* DebugToolsManage.swift */,
+				2375EC4524E4301E0012F788 /* DebugToolsTableViewCell.swift */,
+				2375EC4624E4301E0012F788 /* DebugToolsModelType.swift */,
+				2375EC4724E4301E0012F788 /* DebugToolsMainManagerViewController.swift */,
+				2375EC4824E4301E0012F788 /* DebugToolsViewController.swift */,
+			);
+			path = DebugTools;
 			sourceTree = "<group>";
 		};
 		23877F332438D48400C57B15 = {
@@ -1848,6 +1870,7 @@
 			children = (
 				23B5C8E6243AE1270044E8AB /* 首页 */,
 				23FABACD244B1CA200298C77 /* 浏览器 */,
+				2375EC4324E4301E0012F788 /* DebugTools */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -2116,10 +2139,12 @@
 				238781282438E0E900C57B15 /* Reachability.swift in Sources */,
 				238782382438E0E900C57B15 /* SectionIndexViewItemPreview.swift in Sources */,
 				23A56922246C3FDC004D2449 /* VirtualCurrencyModel.swift in Sources */,
+				2375EC4C24E4301E0012F788 /* DebugToolsMainManagerViewController.swift in Sources */,
 				238781822438E0E900C57B15 /* SKPagingScrollView.swift in Sources */,
 				238781E02438E0E900C57B15 /* MJNIndexView.m in Sources */,
 				238781532438E0E900C57B15 /* ZFPlayerGestureControl.m in Sources */,
 				238781832438E0E900C57B15 /* SKDetectingView.swift in Sources */,
+				2375EC4924E4301E0012F788 /* DebugToolsManage.swift in Sources */,
 				238781F12438E0E900C57B15 /* UIFont+Extension.swift in Sources */,
 				238781E82438E0E900C57B15 /* XYView_Function_Node_Protocol.swift in Sources */,
 				238781D12438E0E900C57B15 /* mz_strm_zlib.c in Sources */,
@@ -2203,6 +2228,7 @@
 				238781212438E0E900C57B15 /* XYUIAdjustment.swift in Sources */,
 				238781422438E0E900C57B15 /* XYLog.swift in Sources */,
 				238782012438E0E900C57B15 /* NSMutableAttributedString+Extension.swift in Sources */,
+				2375EC4D24E4301E0012F788 /* DebugToolsViewController.swift in Sources */,
 				238782442438E0E900C57B15 /* XYAlert_NoteView.swift in Sources */,
 				238781862438E0E900C57B15 /* UIView+Radius.swift in Sources */,
 				2387813D2438E0E900C57B15 /* XYDevice.swift in Sources */,
@@ -2323,6 +2349,7 @@
 				238781F32438E0E900C57B15 /* NSArray+Extension.swift in Sources */,
 				238781FC2438E0E900C57B15 /* UIControl+Extension.swift in Sources */,
 				238781C12438E0E900C57B15 /* UIView+Haneke.swift in Sources */,
+				2375EC4B24E4301E0012F788 /* DebugToolsModelType.swift in Sources */,
 				238781D22438E0E900C57B15 /* mz_zip.c in Sources */,
 				238781882438E0E900C57B15 /* SKLocalPhoto.swift in Sources */,
 				238781EF2438E0E900C57B15 /* XYBaseCollectionViewHeaderCell.swift in Sources */,
@@ -2367,6 +2394,7 @@
 				238781962438E0E900C57B15 /* UIView+MJExtension.m in Sources */,
 				238781B02438E0E900C57B15 /* LTDispatchQueue.swift in Sources */,
 				238782492438E0E900C57B15 /* BaseAlertProtocol.swift in Sources */,
+				2375EC4A24E4301E0012F788 /* DebugToolsTableViewCell.swift in Sources */,
 				238782192438E0E900C57B15 /* ClassModelProtocol_Create.swift in Sources */,
 				238781A12438E0E900C57B15 /* MJRefreshHeader.m in Sources */,
 				2387819A2438E0E900C57B15 /* MJRefreshAutoStateFooter.m in Sources */,

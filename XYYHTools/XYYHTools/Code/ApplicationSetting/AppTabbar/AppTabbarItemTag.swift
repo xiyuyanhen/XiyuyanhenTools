@@ -10,32 +10,15 @@ import Foundation
 
 enum AppTabbarItemTag : Int, XYEnumTypeAllCaseProtocol {
     
-    case 作业     = 0
+    case 首页     = 0
     case 浏览器     = 2
-    case 用户中心  = 3
+    case 调试中心  = 3
     
     var isNeedShow : Bool {
         switch self {
-        case .作业: return true
+        case .首页: return true
         case .浏览器: return true
-        case .用户中心: return true
-        }
-    }
-    
-    var title : String {
-        
-        switch self {
-        case .作业:
-            
-            return "作业"
-            
-        case .浏览器:
-            
-            return "浏览器"
-            
-        case .用户中心:
-            
-            return "我的"
+        case .调试中心: return true
         }
     }
     
@@ -51,7 +34,7 @@ enum AppTabbarItemTag : Int, XYEnumTypeAllCaseProtocol {
         let tag : String = APP_CurrentTarget.resourceFooterTag
         
         switch self {
-        case .作业:
+        case .首页:
             
             normalImgName = "Tabbar_Item_作业\(tag)"
             selectImgName = "Tabbar_Item_作业_Selected\(tag)"
@@ -65,7 +48,7 @@ enum AppTabbarItemTag : Int, XYEnumTypeAllCaseProtocol {
         
             break
             
-        case .用户中心:
+        case .调试中心:
             
             normalImgName = "Tabbar_Item_用户中心\(tag)"
             selectImgName = "Tabbar_Item_用户中心_Selected\(tag)"
@@ -86,7 +69,7 @@ enum AppTabbarItemTag : Int, XYEnumTypeAllCaseProtocol {
     var isNavigationBarHidden : Bool {
         
         switch self {
-        case .作业, .浏览器, .用户中心: return false
+        case .首页, .浏览器, .调试中心: return false
         }
     }
     
