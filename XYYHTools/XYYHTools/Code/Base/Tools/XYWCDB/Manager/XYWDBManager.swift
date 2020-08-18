@@ -17,12 +17,13 @@ enum XYWDataBase: String, DataBaseProtocol {
     fileprivate static let dbMainDirName = "XY_WCDB_DB"
 
     case Log = "XY_WCDB_Log.db"
+    case Bmob = "XY_WCDB_Bmob.db"
     
     /// 数据库文件路径
     var path: String {
         
         switch self {
-        case .Log:
+        case .Log, .Bmob:
             return "\(XYWDataBase.documentPath)/\(XYWDataBase.dbMainDirName)/\(self.rawValue)"
         }
     }
@@ -30,8 +31,8 @@ enum XYWDataBase: String, DataBaseProtocol {
     /// 数据库标签
     var tag: Int {
         switch self {
-        case .Log:
-            return 1
+        case .Log: return 1
+        case .Bmob: return 2
         }
     }
     
@@ -48,12 +49,13 @@ enum XYWDataBase: String, DataBaseProtocol {
 enum XYWTableName: String, TableNameProtocol {
     
     case logMsg = "WCDB_XYLogMsg"
+    case BmobBaseObjectDemo = "XYBmobBaseObjectDemo"
 
     /// 表对应的数据库
     var dataBase: Database {
         switch self {
-        case .logMsg:
-            return XYWDataBase.Log.db
+        case .logMsg: return XYWDataBase.Log.db
+        case .BmobBaseObjectDemo: return XYWDataBase.Bmob.db
         }
     }
     
@@ -64,6 +66,10 @@ enum XYWTableName: String, TableNameProtocol {
             
         case .logMsg:
             select = try? dataBase.prepareSelect(of: WCDB_XYLogMsg.self, fromTable: self.name, isDistinct: true)
+            break
+            
+        case .BmobBaseObjectDemo:
+            select = try? dataBase.prepareSelect(of: XYBmobBaseObjectDemo.self, fromTable: self.name, isDistinct: true)
             break
         }
         
@@ -96,6 +102,11 @@ class XYWDBManager: NSObject {
             try XYWDataBase.Log.db.run(transaction: {
                 
                 try XYWDataBase.Log.db.create(table: XYWTableName.logMsg.name, of: WCDB_XYLogMsg.self)
+            })
+            
+            try XYWDataBase.Bmob.db.run(transaction: {
+                
+                try XYWDataBase.Log.db.create(table: XYWTableName.BmobBaseObjectDemo.name, of: WCDB_XYLogMsg.self)
             })
             
         } catch {

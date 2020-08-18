@@ -226,7 +226,25 @@ extension DebugToolsMainManagerViewController : DebugToolsViewControllerDelegate
             
         case .测试A:
             
-            XYBmobTools.AddTestObject()
+            //XYBmobDemo.AddTestObject()
+            
+            XYBmobBaseObjectDemo(dataObjectId: "Test000000", name: "测试数据000000").save { (result) in
+                
+                switch result {
+                    
+                case .Complete(let object):
+                    
+                    XYLog.Log(msg: "objectId: \(object.objectId)")
+                    
+                    break
+                    
+                case .Error(let error):
+                    
+                    XYLog.Log(msg: "code: \(error.code) msg: \(error.detailMsg)")
+                    
+                    break
+                }
+            }
             
             break
             

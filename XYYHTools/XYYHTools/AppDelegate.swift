@@ -23,7 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        XYBmobTools.Register()
+        XYDispatchQueueType.Public.xyAsync {
+            
+            //初始化数据库
+            XYWDBManager.CreateDBAndTable()
+            
+            XYBmobTools.Register()
+        }
         
         return true
     }

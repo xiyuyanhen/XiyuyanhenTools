@@ -31,6 +31,9 @@
 		2375EC4B24E4301E0012F788 /* DebugToolsModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4624E4301E0012F788 /* DebugToolsModelType.swift */; };
 		2375EC4C24E4301E0012F788 /* DebugToolsMainManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4724E4301E0012F788 /* DebugToolsMainManagerViewController.swift */; };
 		2375EC4D24E4301E0012F788 /* DebugToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4824E4301E0012F788 /* DebugToolsViewController.swift */; };
+		237EC83424EC1BE8002A66AE /* XYBmobObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237EC83324EC1BE8002A66AE /* XYBmobObjectProtocol.swift */; };
+		237EC83624EC1C6D002A66AE /* XYBmobDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237EC83524EC1C6D002A66AE /* XYBmobDemo.swift */; };
+		237EC83824EC20D4002A66AE /* XYBmobBaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237EC83724EC20D4002A66AE /* XYBmobBaseObject.swift */; };
 		23877F402438D48400C57B15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23877F3F2438D48400C57B15 /* AppDelegate.swift */; };
 		23877F422438D48400C57B15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23877F412438D48400C57B15 /* SceneDelegate.swift */; };
 		23877F442438D48400C57B15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23877F432438D48400C57B15 /* ContentView.swift */; };
@@ -399,6 +402,9 @@
 		2375EC4624E4301E0012F788 /* DebugToolsModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsModelType.swift; sourceTree = "<group>"; };
 		2375EC4724E4301E0012F788 /* DebugToolsMainManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsMainManagerViewController.swift; sourceTree = "<group>"; };
 		2375EC4824E4301E0012F788 /* DebugToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsViewController.swift; sourceTree = "<group>"; };
+		237EC83324EC1BE8002A66AE /* XYBmobObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBmobObjectProtocol.swift; sourceTree = "<group>"; };
+		237EC83524EC1C6D002A66AE /* XYBmobDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBmobDemo.swift; sourceTree = "<group>"; };
+		237EC83724EC20D4002A66AE /* XYBmobBaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBmobBaseObject.swift; sourceTree = "<group>"; };
 		23877F3C2438D48400C57B15 /* 我的工具箱.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "我的工具箱.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23877F3F2438D48400C57B15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23877F412438D48400C57B15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -1817,6 +1823,9 @@
 			isa = PBXGroup;
 			children = (
 				2399EFAE24B302B200741E0B /* XYBmobTools.swift */,
+				237EC83524EC1C6D002A66AE /* XYBmobDemo.swift */,
+				237EC83324EC1BE8002A66AE /* XYBmobObjectProtocol.swift */,
+				237EC83724EC20D4002A66AE /* XYBmobBaseObject.swift */,
 			);
 			path = XYBmobTools;
 			sourceTree = "<group>";
@@ -2211,6 +2220,7 @@
 				238781E62438E0E900C57B15 /* SwiftDemo.swift in Sources */,
 				2387816C2438E0E900C57B15 /* XYAVAudioSession.m in Sources */,
 				238782212438E0E900C57B15 /* BaseScrollView.swift in Sources */,
+				237EC83424EC1BE8002A66AE /* XYBmobObjectProtocol.swift in Sources */,
 				2387818F2438E0E900C57B15 /* SKButtons.swift in Sources */,
 				238782062438E0E900C57B15 /* Dictionary+Extension.swift in Sources */,
 				238781C62438E0E900C57B15 /* Fetch.swift in Sources */,
@@ -2266,6 +2276,7 @@
 				2387815A2438E0E900C57B15 /* ZFPlayerView.m in Sources */,
 				2387813C2438E0E900C57B15 /* XYCryptorTools.swift in Sources */,
 				2387822F2438E0E900C57B15 /* XYIB_UIView+Extension.swift in Sources */,
+				237EC83624EC1C6D002A66AE /* XYBmobDemo.swift in Sources */,
 				238781D72438E0E900C57B15 /* mz_crypt.c in Sources */,
 				238781742438E0E900C57B15 /* STKAutoRecoveringHTTPDataSource.m in Sources */,
 				2387816B2438E0E900C57B15 /* UIImageView+ZFCache.m in Sources */,
@@ -2342,6 +2353,7 @@
 				235DAB5F24398CEA004AFA53 /* AppTabbarController.swift in Sources */,
 				238782362438E0E900C57B15 /* SingleChoiceView.swift in Sources */,
 				238782142438E0E900C57B15 /* XYItemSearch_Protocol.swift in Sources */,
+				237EC83824EC20D4002A66AE /* XYBmobBaseObject.swift in Sources */,
 				238781972438E0E900C57B15 /* MJRefreshBackGifFooter.m in Sources */,
 				238782262438E0E900C57B15 /* BaseNavigationController.swift in Sources */,
 				2387819D2438E0E900C57B15 /* MJRefreshNormalHeader.m in Sources */,
