@@ -50,12 +50,13 @@ enum XYWTableName: String, TableNameProtocol {
     
     case logMsg = "WCDB_XYLogMsg"
     case BmobBaseObjectDemo = "XYBmobBaseObjectDemo"
+    case TableName_大乐透 = "Daletou"
 
     /// 表对应的数据库
     var dataBase: Database {
         switch self {
         case .logMsg: return XYWDataBase.Log.db
-        case .BmobBaseObjectDemo: return XYWDataBase.Bmob.db
+        case .BmobBaseObjectDemo, .TableName_大乐透: return XYWDataBase.Bmob.db
         }
     }
     
@@ -70,6 +71,10 @@ enum XYWTableName: String, TableNameProtocol {
             
         case .BmobBaseObjectDemo:
             select = try? dataBase.prepareSelect(of: XYBmobBaseObjectDemo.self, fromTable: self.name, isDistinct: true)
+            break
+            
+        case .TableName_大乐透:
+            select = try? dataBase.prepareSelect(of: XYBmobObject_大乐透.self, fromTable: self.name, isDistinct: true)
             break
         }
         
@@ -97,7 +102,7 @@ class XYWDBManager: NSObject {
         
         do {
             // create if not exit
-            
+        
             
             try XYWDataBase.Log.db.run(transaction: {
                 
@@ -106,12 +111,17 @@ class XYWDBManager: NSObject {
             
             try XYWDataBase.Bmob.db.run(transaction: {
                 
-                try XYWDataBase.Log.db.create(table: XYWTableName.BmobBaseObjectDemo.name, of: WCDB_XYLogMsg.self)
+                try XYWDataBase.Log.db.create(table: XYWTableName.BmobBaseObjectDemo.name, of: XYBmobBaseObjectDemo.self)
+            })
+            
+            try XYWDataBase.Bmob.db.run(transaction: {
+                
+                try XYWDataBase.Log.db.create(table: XYWTableName.TableName_大乐透.name, of: XYBmobObject_大乐透.self)
             })
             
         } catch {
             
-            ShowSingleBtnAlertView(title: "数据库初始化失败!", message: "由于未知原因，数据库初始化失败，将影响评分，请尝试重新打开App或者重新安装来修复此问题，若无法解决，请向有关人员反馈此问题，对此造成的不便，十分抱歉")
+            ShowSingleBtnAlertView(title: "数据库初始化失败!", message: "")
         }
     }
 }

@@ -28,10 +28,8 @@ class XYSelectItemButton<Item> : UIButton, XYViewNewAutoLayoutProtocol{
         
         self.setLayerCornerRadius(UIW(8))
         
-        self.setXYControlStateChangeBlock { (btnOrNil, state) in
-            
-            guard let btn = btnOrNil as? XYSelectItemButton else { return }
-            
+        self.setXYControlStateChangeBlock { (btn, state) in
+        
             switch state {
             case .normal:
                 

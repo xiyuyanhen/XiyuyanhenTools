@@ -232,34 +232,41 @@ extension UIView {
 }
 
 // MARK: - XYControlState
-/*
+
 protocol XYControlStateProtocol{
     
-    associatedtype XYControlState_T
     
-    //    typealias ChangeXYControlStateBlock = (_ viewSelf:XYControlState_T, _ state:UIView.XYControlState) -> Void
-    
-    //    func setXYControlStateChangeBlock(block:ChangeXYControlStateBlock?)
 }
 
 extension XYControlStateProtocol where Self : UIView {
     
-    typealias ChangeXYControlStateBlock = (_ viewSelf:XYControlState_T, _ state:UIView.XYControlState) -> Void
+    typealias ChangeXYControlStateBlock = (_ view: Self, _ state: UIView.XYControlState) -> Void
+    
+    var xyControlStateChangeBlock: ChangeXYControlStateBlock? {
+        
+        set{
+            objc_setAssociatedObject(self, UIView.XYControlStateChangeBlockNameKey!, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+        }
+        
+        get{
+            if let xycsChangeBlock = objc_getAssociatedObject(self, UIView.XYControlStateChangeBlockNameKey!) as? ChangeXYControlStateBlock {
+                
+                return xycsChangeBlock
+            }
+            
+            return nil
+        }
+    }
     
     func setXYControlStateChangeBlock(block: ChangeXYControlStateBlock?) {
         
-        self.xyControlStateChangeBlock = block;
+        self.xyControlStateChangeBlock = block
     }
-    
-    //    static func NewAutolayout() -> Self {
-    //
-    //        let view = self.newAutoLayout()
-    //
-    //        return view
-    //    }
 }
-*/
-extension UIView/*: XYControlStateProtocol*/ {
+
+extension UIView: XYControlStateProtocol {}
+
+extension UIView {
     
 //    typealias XYControlState_T = UIView
     
@@ -311,37 +318,8 @@ extension UIView/*: XYControlStateProtocol*/ {
         }
     }
     
-    static private let XYControlStateChangeBlockNameKey = UnsafeRawPointer.init(bitPattern: "UIView_XYControlStateChangeBlock_Key".hashValue)
-    var xyControlStateChangeBlock:ChangeXYControlStateBlock?{
-        set{
-            objc_setAssociatedObject(self, UIView.XYControlStateChangeBlockNameKey!, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
-        }
-        get{
-            if let xycsChangeBlock = objc_getAssociatedObject(self, UIView.XYControlStateChangeBlockNameKey!) as? ChangeXYControlStateBlock {
-                
-                return xycsChangeBlock
-            }
-            
-            return nil
-        }
-    }
+    static let XYControlStateChangeBlockNameKey = UnsafeRawPointer.init(bitPattern: "UIView_XYControlStateChangeBlock_Key".hashValue)
     
-    typealias ChangeXYControlStateBlock = (_ viewSelf:UIView, _ state:UIView.XYControlState) -> Void
-    
-    func setXYControlStateChangeBlock(block: ChangeXYControlStateBlock?) {
-        
-        self.xyControlStateChangeBlock = block;
-    }
-    
-    //    func setXYControlStateChangeBlock(block: ChangeXYControlStateBlock?) {
-    //
-    //        self.xyControlStateChangeBlock = block;
-    //    }
-    
-    //    func setXYControlStateChangeBlock(block:ChangeXYControlStateBlock?){
-    //
-    //
-    //    }
 }
 
 // MARK: - 添加阴影效果

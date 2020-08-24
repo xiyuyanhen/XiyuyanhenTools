@@ -56,9 +56,7 @@ class SingleStepView : BaseView {
         let dotView = UIView.newAutoLayout()
         dotView.layer.masksToBounds = true
 
-        dotView.setXYControlStateChangeBlock(block: { (viewOrNil, state) in
-            
-            guard let view = viewOrNil as? UIView else { return }
+        dotView.setXYControlStateChangeBlock(block: { (view, state) in
             
             let width : CGFloat
             if state == .normal {

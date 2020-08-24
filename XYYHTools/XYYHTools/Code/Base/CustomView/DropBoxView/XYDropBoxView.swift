@@ -301,9 +301,7 @@ class XYDropBoxTableViewCell: BaseTableViewCell {
         self.textLabel?.setNumberOfLines(1)
             .setFont(XYFont.Font(size: 14))
         
-        self.setXYControlStateChangeBlock { (cellOrNil, state) in
-            
-            guard let cell = cellOrNil as? XYDropBoxTableViewCell else { return }
+        self.setXYControlStateChangeBlock { (cell, state) in
             
             if state == .selected {
                 

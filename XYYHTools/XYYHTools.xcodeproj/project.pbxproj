@@ -33,7 +33,8 @@
 		2375EC4D24E4301E0012F788 /* DebugToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4824E4301E0012F788 /* DebugToolsViewController.swift */; };
 		237EC83424EC1BE8002A66AE /* XYBmobObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237EC83324EC1BE8002A66AE /* XYBmobObjectProtocol.swift */; };
 		237EC83624EC1C6D002A66AE /* XYBmobDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237EC83524EC1C6D002A66AE /* XYBmobDemo.swift */; };
-		237EC83824EC20D4002A66AE /* XYBmobBaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237EC83724EC20D4002A66AE /* XYBmobBaseObject.swift */; };
+		237EC83824EC20D4002A66AE /* XYBmobBaseObjectDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237EC83724EC20D4002A66AE /* XYBmobBaseObjectDemo.swift */; };
+		2382AF5524EEC55700F72192 /* XYBmobObject_大乐透.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2382AF5424EEC55700F72192 /* XYBmobObject_大乐透.swift */; };
 		23877F402438D48400C57B15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23877F3F2438D48400C57B15 /* AppDelegate.swift */; };
 		23877F422438D48400C57B15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23877F412438D48400C57B15 /* SceneDelegate.swift */; };
 		23877F442438D48400C57B15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23877F432438D48400C57B15 /* ContentView.swift */; };
@@ -404,7 +405,8 @@
 		2375EC4824E4301E0012F788 /* DebugToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsViewController.swift; sourceTree = "<group>"; };
 		237EC83324EC1BE8002A66AE /* XYBmobObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBmobObjectProtocol.swift; sourceTree = "<group>"; };
 		237EC83524EC1C6D002A66AE /* XYBmobDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBmobDemo.swift; sourceTree = "<group>"; };
-		237EC83724EC20D4002A66AE /* XYBmobBaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBmobBaseObject.swift; sourceTree = "<group>"; };
+		237EC83724EC20D4002A66AE /* XYBmobBaseObjectDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBmobBaseObjectDemo.swift; sourceTree = "<group>"; };
+		2382AF5424EEC55700F72192 /* XYBmobObject_大乐透.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XYBmobObject_大乐透.swift"; sourceTree = "<group>"; };
 		23877F3C2438D48400C57B15 /* 我的工具箱.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "我的工具箱.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23877F3F2438D48400C57B15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23877F412438D48400C57B15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -914,6 +916,14 @@
 				2375EC4824E4301E0012F788 /* DebugToolsViewController.swift */,
 			);
 			path = DebugTools;
+			sourceTree = "<group>";
+		};
+		2382AF5324EEC52800F72192 /* 大乐透 */ = {
+			isa = PBXGroup;
+			children = (
+				2382AF5424EEC55700F72192 /* XYBmobObject_大乐透.swift */,
+			);
+			path = "大乐透";
 			sourceTree = "<group>";
 		};
 		23877F332438D48400C57B15 = {
@@ -1825,7 +1835,7 @@
 				2399EFAE24B302B200741E0B /* XYBmobTools.swift */,
 				237EC83524EC1C6D002A66AE /* XYBmobDemo.swift */,
 				237EC83324EC1BE8002A66AE /* XYBmobObjectProtocol.swift */,
-				237EC83724EC20D4002A66AE /* XYBmobBaseObject.swift */,
+				237EC83724EC20D4002A66AE /* XYBmobBaseObjectDemo.swift */,
 			);
 			path = XYBmobTools;
 			sourceTree = "<group>";
@@ -1869,6 +1879,7 @@
 		23A56920246C35F0004D2449 /* 金融动态 */ = {
 			isa = PBXGroup;
 			children = (
+				2382AF5324EEC52800F72192 /* 大乐透 */,
 				23B5C8EE243AF1330044E8AB /* 虚拟货币 */,
 			);
 			path = "金融动态";
@@ -2281,6 +2292,7 @@
 				238781742438E0E900C57B15 /* STKAutoRecoveringHTTPDataSource.m in Sources */,
 				2387816B2438E0E900C57B15 /* UIImageView+ZFCache.m in Sources */,
 				2387816D2438E0E900C57B15 /* TypeMenu.m in Sources */,
+				2382AF5524EEC55700F72192 /* XYBmobObject_大乐透.swift in Sources */,
 				238781E22438E0E900C57B15 /* XYDisplay.swift in Sources */,
 				238781F52438E0E900C57B15 /* Date+Extension.swift in Sources */,
 				2387820F2438E0E900C57B15 /* XYEnumTypeProtocol.swift in Sources */,
@@ -2353,7 +2365,7 @@
 				235DAB5F24398CEA004AFA53 /* AppTabbarController.swift in Sources */,
 				238782362438E0E900C57B15 /* SingleChoiceView.swift in Sources */,
 				238782142438E0E900C57B15 /* XYItemSearch_Protocol.swift in Sources */,
-				237EC83824EC20D4002A66AE /* XYBmobBaseObject.swift in Sources */,
+				237EC83824EC20D4002A66AE /* XYBmobBaseObjectDemo.swift in Sources */,
 				238781972438E0E900C57B15 /* MJRefreshBackGifFooter.m in Sources */,
 				238782262438E0E900C57B15 /* BaseNavigationController.swift in Sources */,
 				2387819D2438E0E900C57B15 /* MJRefreshNormalHeader.m in Sources */,

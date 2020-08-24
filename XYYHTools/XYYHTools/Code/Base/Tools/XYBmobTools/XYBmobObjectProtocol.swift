@@ -31,38 +31,57 @@ extension XYBmobObjectProtocol {
     
     func save(_ block: @escaping (XYBmobResult<BmobObject, XYError>) -> Void) {
         
-        guard let bmobObj = self.bmobObjectOrNil else {
+        self.insertOrReplace { (result) in
             
-            block(.Error(XYBmobError.初始化失败.error()))
-            return
-        }
-        
-        bmobObj.saveInBackground { [weak bmobObj] (isSuccessful, errorOrNil) in
-            
-            if isSuccessful,
-                let weakObje = bmobObj,
-                let objectId = weakObje.objectId,
-                objectId.isNotEmpty {
+            switch result {
+            case .Success(_):
                 
-                //创建成功后会返回objectId，updatedAt，createdAt等信息
+                guard let bmobObj = self.bmobObjectOrNil else {
+                    
+                    block(.Error(XYBmobError.初始化失败.error()))
+                    return
+                }
                 
-                XYLog.LogNote(msg: "保存对象成功(objectId: \(objectId))")
-                
-                block(.Complete(weakObje))
+                bmobObj.saveInBackground { [weak bmobObj] (isSuccessful, errorOrNil) in
+                    
+                    if isSuccessful,
+                        let weakObje = bmobObj,
+                        let objectId = weakObje.objectId,
+                        objectId.isNotEmpty {
+                        
+                        //创建成功后会返回objectId，updatedAt，createdAt等信息
+                        
+                        XYLog.LogNote(msg: "保存对象成功(objectId: \(objectId))")
+                        
+                        block(.Complete(weakObje))
 
-            }else if let error = errorOrNil {
+                    }else if let error = errorOrNil {
 
-                let xyError = XYError(error: error)
+                        let xyError = XYError(error: error)
 
-                XYLog.LogNote(msg: "保存对象失败, code: \(xyError.code) msg: \(xyError.detailMsg)")
-                
-                block(.Error(xyError))
-                
-            }else {
+                        XYLog.LogNote(msg: "保存对象失败, code: \(xyError.code) msg: \(xyError.detailMsg)")
+                        
+                        block(.Error(xyError))
+                        
+                    }else {
 
-                XYLog.LogNote(msg: "保存对象失败, 未知错误")
+                        XYLog.LogNote(msg: "保存对象失败, 未知错误")
+                        
+                        block(.Error(XYBmobError.保存到Bmob失败.error()))
+                    }
+                }
                 
-                block(.Error(XYBmobError.保存失败.error()))
+                return
+                
+            case .Failure(_):
+                
+                block(.Error(XYBmobError.保存到本地数据库失败.error()))
+                return
+                
+            case .Error(let error):
+                
+                block(.Error(error))
+                return
             }
         }
     }
@@ -94,6 +113,8 @@ enum XYBmobError: String, XYErrorCustomTypeProtocol {
 
     case 初始化失败 = "10001#*#初始化失败"
     
-    case 保存失败 = "10002#*#保存失败"
+    case 保存到Bmob失败 = "10002#*#保存到Bmob失败"
+    
+    case 保存到本地数据库失败 = "10003#*#保存到本地数据库失败"
     
 }

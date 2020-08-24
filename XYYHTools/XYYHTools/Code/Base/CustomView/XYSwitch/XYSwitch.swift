@@ -167,10 +167,8 @@ import RxCocoa
         
         willSet{
             
-            newValue.setXYControlStateChangeBlock { (labelOrNil, state) in
-                
-                guard let label = labelOrNil as? UILabel else { return }
-                
+            newValue.setXYControlStateChangeBlock { (label, state) in
+            
                 let color : XYColor.CustomColor
                 if state == .selected {
                     
@@ -191,9 +189,7 @@ import RxCocoa
         
         willSet{
             
-            newValue.setXYControlStateChangeBlock { (labelOrNil, state) in
-                
-                guard let label = labelOrNil as? UILabel else { return }
+            newValue.setXYControlStateChangeBlock { (label, state) in
                 
                 let color : XYColor.CustomColor
                 if state == .selected {

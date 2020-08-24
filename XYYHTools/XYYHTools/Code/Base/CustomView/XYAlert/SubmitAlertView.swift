@@ -148,9 +148,7 @@ class SubmitAlertView : BaseView {
         let imgView = BaseImageView.newAutoLayout()
         imgView.setContentMode(.scaleAspectFit)
         
-        imgView.setXYControlStateChangeBlock(block: { (imgViewOrNil, state) in
-                
-                guard let imgV = imgViewOrNil as? BaseImageView else { return }
+        imgView.setXYControlStateChangeBlock(block: { (imgV, state) in
                 
                 if state == .normal {
                     
@@ -173,9 +171,7 @@ class SubmitAlertView : BaseView {
         label.numberOfLines = 0
         label.textAlignment = NSTextAlignment.center
         
-        label.setXYControlStateChangeBlock(block: { (labelOrNil, state) in
-            
-            guard let lab = labelOrNil as? BaseLabel else { return }
+        label.setXYControlStateChangeBlock(block: { (lab, state) in
             
             if state == .normal {
                 
