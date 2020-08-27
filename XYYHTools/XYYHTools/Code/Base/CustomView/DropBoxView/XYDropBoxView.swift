@@ -282,7 +282,7 @@ extension XYDropBoxView: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = item
         }
         
-        cell.xyControlState = (self.currentItemIndex == indexPath.row).xyReturn(.selected, .normal)
+        cell.xyControlStateOrNil = (self.currentItemIndex == indexPath.row).xyReturn(.selected, .normal)
         
         return cell
     }
@@ -301,9 +301,9 @@ class XYDropBoxTableViewCell: BaseTableViewCell {
         self.textLabel?.setNumberOfLines(1)
             .setFont(XYFont.Font(size: 14))
         
-        self.setXYControlStateChangeBlock { (cell, state) in
+        self.xyRxControlStateObservable.subscribe(onNext: { (cell, stateOrNil) in
             
-            if state == .selected {
+            if stateOrNil == .selected {
                 
                 cell.cellView.setBackgroundColor(customColor: .xf6f6f6)
                 
@@ -316,9 +316,11 @@ class XYDropBoxTableViewCell: BaseTableViewCell {
                 cell.textLabel?.setTextColor(customColor: .x333333)
             }
             
-            cell.selectedImgView.setHidden(state != .selected)
-        }
-        self.xyControlState = .normal
+            cell.selectedImgView.setHidden(stateOrNil != .selected)
+            
+        }).disposed(by: self.disposeBag)
+        
+        self.xyControlStateOrNil = .normal
     }
     
     override func layoutAddViews() {

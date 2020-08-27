@@ -75,8 +75,8 @@ class SubmitAlertView : BaseView {
             
         case .Success:
             
-            self.resultTitleLabel.xyControlState = .normal
-            self.resultImgView.xyControlState = .normal
+            self.resultTitleLabel.xyControlStateOrNil = .normal
+            self.resultImgView.xyControlStateOrNil = .normal
             
             self.resultTitleLabel.setHidden(false)
             self.resultImgView.setHidden(false)
@@ -87,8 +87,8 @@ class SubmitAlertView : BaseView {
             
         case .Failure:
             
-            self.resultTitleLabel.xyControlState = .selected
-            self.resultImgView.xyControlState = .selected
+            self.resultTitleLabel.xyControlStateOrNil = .selected
+            self.resultImgView.xyControlStateOrNil = .selected
             
             self.resultTitleLabel.setHidden(false)
             self.resultImgView.setHidden(false)
@@ -148,16 +148,17 @@ class SubmitAlertView : BaseView {
         let imgView = BaseImageView.newAutoLayout()
         imgView.setContentMode(.scaleAspectFit)
         
-        imgView.setXYControlStateChangeBlock(block: { (imgV, state) in
+        imgView.xyRxControlStateObservable.subscribe(onNext: { (imgV, stateOrNil) in
+            
+            if stateOrNil == .normal {
                 
-                if state == .normal {
-                    
-                    imgV.setImageByName("Submit_Success")
-                }else if state == .selected {
-                    
-                    imgV.setImageByName("Submit_Failure")
-                }
-        })
+                imgV.setImageByName("Submit_Success")
+            }else if stateOrNil == .selected {
+                
+                imgV.setImageByName("Submit_Failure")
+            }
+            
+        }).disposed(by: imgView.disposeBag)
         
         return imgView
     }()
@@ -171,16 +172,17 @@ class SubmitAlertView : BaseView {
         label.numberOfLines = 0
         label.textAlignment = NSTextAlignment.center
         
-        label.setXYControlStateChangeBlock(block: { (lab, state) in
+        label.xyRxControlStateObservable.subscribe(onNext: { (lab, stateOrNil) in
             
-            if state == .normal {
+            if stateOrNil == .normal {
                 
                 lab.text = "提交成功"
-            }else if state == .selected {
+            }else if stateOrNil == .selected {
                 
                 lab.text = "提交失败"
             }
-        })
+            
+        }).disposed(by: label.disposeBag)
         
         return label
     }()

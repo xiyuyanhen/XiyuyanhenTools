@@ -12,6 +12,53 @@ import QuartzCore.CALayer
 // MARK: - Rx - disposeBag
 import RxSwift
 import RxCocoa
+
+// MARK: - Rx
+
+protocol UIView_RxObject_Extension {
+    
+}
+
+extension UIView_RxObject_Extension where Self: UIView {
+    
+    var xyRxControlStateObservable: PublishSubject<(Self, UIView.XYControlState?)> {
+        
+        set{
+            objc_setAssociatedObject(self, &UIView.XYRx_XYViewAndControlState_NameKey, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
+        
+        get{
+            
+            guard let newValue = objc_getAssociatedObject(self, &UIView.XYRx_XYViewAndControlState_NameKey) as? PublishSubject<(Self, UIView.XYControlState?)> else {
+                
+                let newValue = PublishSubject<(Self, UIView.XYControlState?)>()
+
+                self.xyRxControlState.distinctUntilChanged().subscribe(onNext: { [weak self] (stateOrNil) in
+                    guard let weakSelf = self else { return }
+                    
+                    newValue.onNext((weakSelf, stateOrNil))
+                    
+                }).disposed(by: self.disposeBag)
+                
+                return newValue
+            }
+            
+            return newValue
+        }
+    }
+    
+    /// 更新 UIView.XYControlState 状态
+    @discardableResult func setXYControlState(_ stateOrNil: UIView.XYControlState?) -> Self {
+        
+        self.xyControlStateOrNil = stateOrNil
+        
+        return self
+    }
+    
+}
+
+extension UIView: UIView_RxObject_Extension {}
+
 extension UIView {
     
     static private let XYDisposeBagNameKey = UnsafeRawPointer.init(bitPattern: "UIView_DisposeBag_Key".hashValue)
@@ -36,6 +83,81 @@ extension UIView {
             return bag
         }
     }
+    
+    static private var XYRxLayoutSubviewsNameKey: String = "UIView_XYRxLayoutSubviews_NameKey"
+    private var _xyRxLayoutSubviewsOrNil: PublishSubject<CGRect>? {
+        
+        set{
+            
+            objc_setAssociatedObject(self, &UIView.XYRxLayoutSubviewsNameKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        
+        get{
+            
+            guard let newValue = objc_getAssociatedObject(self, &UIView.XYRxLayoutSubviewsNameKey) as? PublishSubject<CGRect> else { return nil }
+            
+            return newValue
+        }
+    }
+    
+    private var rxLayoutSubviews: PublishSubject<CGRect> {
+        
+        guard let value = self._xyRxLayoutSubviewsOrNil else {
+            
+            let newValue = PublishSubject<CGRect>()
+            
+            self._xyRxLayoutSubviewsOrNil = newValue
+            
+            return newValue
+        }
+        
+        return value
+    }
+    
+    var rxLayoutSubviewsObservable: Observable<CGRect> {
+
+        return self.rxLayoutSubviews.distinctUntilChanged { (value, newValue) -> Bool in
+            
+            guard (newValue.isZero == false) else { return true }
+            
+            let result = (value.width != newValue.width) || (value.height != newValue.height)
+            
+            return !result
+        }
+    }
+    
+    static private var XYRx_XYControlState_NameKey: String = "UIView_XYRx_XYControlState_NameKey"
+    
+    fileprivate var xyRxControlState: BehaviorRelay<UIView.XYControlState?> {
+        
+        set{
+            objc_setAssociatedObject(self, &UIView.XYRx_XYControlState_NameKey, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
+        
+        get{
+            
+            guard let newValue = objc_getAssociatedObject(self, &UIView.XYRx_XYControlState_NameKey) as? BehaviorRelay<UIView.XYControlState?> else {
+                
+                let newValue = BehaviorRelay<UIView.XYControlState?>(value: nil)
+                
+                self.xyRxControlState = newValue
+                
+                return newValue
+            }
+            
+            return newValue
+        }
+    }
+    
+    /// 当前 UIView.XYControlState 状态
+    var xyControlStateOrNil: UIView.XYControlState? {
+        
+        get { return self.xyRxControlState.value }
+        
+        set { self.xyRxControlState.accept(newValue) }
+    }
+    
+    static var XYRx_XYViewAndControlState_NameKey: String = "UIView_XYRx_XYViewAndControlState_NameKey"
     
 }
 
@@ -102,6 +224,8 @@ extension UIView {
      *
      */
     @objc func xyLayoutSubviews() {
+        
+        self._xyRxLayoutSubviewsOrNil?.onNext(self.frame)
 
         guard let (layer, isDashLine) = self.shapeLayerEdgeCorner() else { return }
         
@@ -137,9 +261,6 @@ extension UIView{
         case DidAppear
         case WillDisappear
         case DidDisappear
-        
-        /// 状态值
-        var stateNum: Int { return self.rawValue }
         
         func nextState() -> XYViewState {
             
@@ -229,46 +350,32 @@ extension UIView {
         
         return newValue
     }
+    
+    /// 添加点击手势并返回该手势
+    var xyAddTapGR: UITapGestureRecognizer {
+        
+        self.isUserInteractionEnabled.xyRunBlockWhenFalse {
+            // 如果当前不响应交互，则修改
+            
+            self.setUserInteraction(true)
+        }
+    
+        let newValue = UITapGestureRecognizer()
+
+//        newValue.rx.event.subscribe(onNext: { [weak self] (tapGR) in
+//            guard let weakSelf = self else { return }
+//
+//        }).disposed(by: self.disposeBag)
+
+        self.addGestureRecognizer(newValue)
+        
+        return newValue
+    }
 }
 
 // MARK: - XYControlState
 
-protocol XYControlStateProtocol{
-    
-    
-}
-
-extension XYControlStateProtocol where Self : UIView {
-    
-    typealias ChangeXYControlStateBlock = (_ view: Self, _ state: UIView.XYControlState) -> Void
-    
-    var xyControlStateChangeBlock: ChangeXYControlStateBlock? {
-        
-        set{
-            objc_setAssociatedObject(self, UIView.XYControlStateChangeBlockNameKey!, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
-        }
-        
-        get{
-            if let xycsChangeBlock = objc_getAssociatedObject(self, UIView.XYControlStateChangeBlockNameKey!) as? ChangeXYControlStateBlock {
-                
-                return xycsChangeBlock
-            }
-            
-            return nil
-        }
-    }
-    
-    func setXYControlStateChangeBlock(block: ChangeXYControlStateBlock?) {
-        
-        self.xyControlStateChangeBlock = block
-    }
-}
-
-extension UIView: XYControlStateProtocol {}
-
 extension UIView {
-    
-//    typealias XYControlState_T = UIView
     
     enum XYControlState : Int, XYEnumTypeAllCaseProtocol {
         case normal
@@ -287,39 +394,6 @@ extension UIView {
         case buffering
         case Recording
     }
-    
-    //    typealias ChangeXYControlStateBlock = (_ viewSelf:Self, _ state:Self.XYControlState) -> Void
-    //    typealias ChangeXYControlStateBlock = (_ self_view:UIView, _ state:XYControlState) -> Void
-    
-    // MARK: - 自定义状态
-    static private let XYControlStateNameKey = UnsafeRawPointer.init(bitPattern: "UIView_XYControlState_Key".hashValue)
-    var xyControlState:XYControlState{
-        set{
-            let xycs = objc_getAssociatedObject(self, UIView.XYControlStateNameKey!) as? XYControlState
-            
-            // 只有在与原始值不一致时才更新
-            if(xycs != newValue){
-                
-                if let changeBlock = self.xyControlStateChangeBlock {
-                    
-                    changeBlock(self, newValue)
-                }
-                
-                objc_setAssociatedObject(self, UIView.XYControlStateNameKey!, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
-            }
-        }
-        get{
-            if let xycs = objc_getAssociatedObject(self, UIView.XYControlStateNameKey!) as? XYControlState {
-                
-                return xycs
-            }
-            
-            return UIView.XYControlState.normal
-        }
-    }
-    
-    static let XYControlStateChangeBlockNameKey = UnsafeRawPointer.init(bitPattern: "UIView_XYControlStateChangeBlock_Key".hashValue)
-    
 }
 
 // MARK: - 添加阴影效果
@@ -981,7 +1055,7 @@ extension UIView {
         }
     }
     
-//    
+//
     
     static private let XYIsDidUpdateConstraintsNameKey = UnsafeRawPointer.init(bitPattern: "UIView_XYIsDidUpdateConstraints_Key".hashValue)
     var xyIsDidUpdateConstraints : Bool{
@@ -1005,14 +1079,14 @@ extension UIView {
 // MARK: - Add Line
 extension UIView {
     
-    /// 在本视图内部添加一条线
-    @discardableResult func addLine(_ edge: ALEdge, size: CGFloat, color bgColor: UIColor?, edgeInsets: UIEdgeInsets = UIEdgeInsets.zero) -> UIView {
+    @discardableResult
+    func addLine(_ edge: ALEdge, size: CGFloat, color bgColor: UIColor?) -> UIView {
         
-        UIView.AddLineTo(containerView: self, edge: edge, size: size, color: bgColor, edgeInsets: edgeInsets)
+        return addLine(edge, size: size, color: bgColor, edgeInsets: UIEdgeInsets.zero)
     }
     
-    /// 在本视图同级上添加一条线
-    @discardableResult static func AddLineTo(containerView: UIView, edge: ALEdge, size: CGFloat, color bgColor: UIColor?, edgeInsets: UIEdgeInsets = UIEdgeInsets.zero) -> UIView {
+    @discardableResult
+    func addLine(_ edge: ALEdge, size: CGFloat, color bgColor: UIColor?, edgeInsets: UIEdgeInsets) -> UIView {
         
         let line = UIView.newAutoLayout()
         
@@ -1020,25 +1094,20 @@ extension UIView {
             line.backgroundColor = bgColor
         }
         
-        containerView.addSubview(line)
+        addSubview(line)
         
-        switch edge {
-        case .top, .bottom:
+        if edge == ALEdge.top || edge == ALEdge.bottom {
             //若为Top/Bottom
             
             line.autoSetDimension(ALDimension.height, toSize: size)
-            line.autoPinView(otherView: containerView, edgeInsets: edgeInsets, edges: ALEdge.leading, ALEdge.trailing, edge)
-            break
+            line.autoPinView(otherView: self, edgeInsets: edgeInsets, edges: ALEdge.leading, ALEdge.trailing, edge)
             
-        case .leading, .trailing, .left, .right:
+        } else if edge == ALEdge.leading || edge == ALEdge.trailing || edge == ALEdge.left || edge == ALEdge.right {
             //若为Left/Right
             
             line.autoSetDimension(ALDimension.width, toSize: size)
-            line.autoPinView(otherView: containerView, edgeInsets: edgeInsets, edges: ALEdge.top, ALEdge.bottom, edge)
-            break
+            line.autoPinView(otherView: self, edgeInsets: edgeInsets, edges: ALEdge.top, ALEdge.bottom, edge)
             
-        default:
-            fatalError("缺少必需的约束条件!")
         }
         
         return line
@@ -1073,7 +1142,7 @@ extension UIView {
         
         set{
             
-            objc_setAssociatedObject(self, UIView.XYExtraDataNameKey!, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+            objc_setAssociatedObject(self, UIView.XYExtraDataNameKey!, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         
         get{
@@ -1137,9 +1206,16 @@ extension UIView {
      */
     var xySystemLayoutFittedSizeOrNil: CGSize? {
         
+        self.updateConstraintsIfNeeded()
+        
         self.layoutIfNeeded()
         
         var size = self.bounds.size
+        
+        if let widthLC = self.xyLayoutConstraints.width {
+            
+            size.width = widthLC.constant
+        }
         
         guard let newHeight: CGFloat = self.xySystemLayoutFittedHeightBy(size.width, referenceHeight: size.height) else { return nil }
         
@@ -1165,10 +1241,57 @@ extension UIView {
         
         return true
     }
+    
+    /**
+     *    @description 使用系统方法根据确定的视图高度重新最新的视图大小
+     *
+     *    @param    height 视图的高度
+     *
+     *    @param    widthLC 视图的宽度约束
+     *
+     *    @return   视图大小
+     */
+    @discardableResult func xySystemLayoutFittingWithBy(_ height: CGFloat, widthLC widthLCOrNil: NSLayoutConstraint? = nil) -> CGFloat {
+    
+        // 将宽度约束失效，否则会影响计算
+        widthLCOrNil?.isActive = false
+        
+        /// 计算实际需要的大小
+        let fittingSize = self.systemLayoutSizeFitting(CGSize(width: 0, height: height))
+        
+        //XYLog.Log(msg: "size: w:\(fittingSize.width) h:\(fittingSize.height)")
+        
+        // 修改宽度约束值并使之生效
+        widthLCOrNil?.constant = fittingSize.width
+        widthLCOrNil?.isActive = true
+        
+        return fittingSize.width
+    }
 }
 
 // MARK: - Animation
 extension UIView {
+    
+    static private let XYTransform_RotateAngleValueNameKey = UnsafeRawPointer.init(bitPattern: "UIView_Transform_RotateAngleValue_Key".hashValue)
+    
+    /// 当前翻转角度值
+    var xyTransform_Rotate_Angle: CGFloat {
+        
+        set{
+            
+            objc_setAssociatedObject(self, UIView.XYTransform_RotateAngleValueNameKey!, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+        }
+        
+        get{
+            
+            guard let value = objc_getAssociatedObject(self, UIView.XYTransform_RotateAngleValueNameKey!) as? CGFloat else {
+                
+                return 0.0
+            }
+            
+            return value
+        }
+    }
     
     /**
      *    @description 视图翻转
@@ -1179,6 +1302,47 @@ extension UIView {
      *
      */
     func xyTransform_Rotate(angle: CGFloat, _ animateDurationOrNil: TimeInterval? = nil) {
+        
+        defer {
+            
+            // 缓存当前的翻转角度
+            self.xyTransform_Rotate_Angle = angle + self.xyTransform_Rotate_Angle
+        }
+        
+        
+        guard let animateDuration = animateDurationOrNil,
+            0 < animateDuration else {
+            
+            self.transform = self.transform.rotated(by: angle * CGFloat.pi/180.0)
+            return
+        }
+        
+        UIView.animate(withDuration: animateDuration, animations: {
+            
+            self.transform = self.transform.rotated(by: angle * CGFloat.pi/180.0)
+        })
+    }
+    
+    /**
+     *    @description 视图翻转至原始状态
+     *
+     *    @param    animateDurationOrNil    翻转动画时间
+     *
+     */
+    func xyTransform_RotateToZeroAngle(_ animateDurationOrNil: TimeInterval? = nil) {
+        
+        /// 翻转角度
+        var angle = self.xyTransform_Rotate_Angle
+        
+        guard angle != 0.0 else { return }
+        
+        angle = -angle
+        
+        defer {
+            
+            // 缓存当前的翻转角度
+            self.xyTransform_Rotate_Angle = 0.0
+        }
         
         guard let animateDuration = animateDurationOrNil,
             0 < animateDuration else {
@@ -1194,3 +1358,4 @@ extension UIView {
     }
     
 }
+

@@ -28,9 +28,9 @@ class XYSelectItemButton<Item> : UIButton, XYViewNewAutoLayoutProtocol{
         
         self.setLayerCornerRadius(UIW(8))
         
-        self.setXYControlStateChangeBlock { (btn, state) in
-        
-            switch state {
+        self.xyRxControlStateObservable.subscribe(onNext: { (btn, stateOrNil) in
+            
+            switch stateOrNil {
             case .normal:
                 
                 btn.setTitleColor(XYColor(custom: .x333333).uicolor, for: .normal)
@@ -45,9 +45,7 @@ class XYSelectItemButton<Item> : UIButton, XYViewNewAutoLayoutProtocol{
                     .setLayerBorder(width: 1.0, color: .main)
                 break
             }
-        }
-        self.xyControlState = .normal
-        
+        }).disposed(by: self.disposeBag)
     }
     
     override func updateConstraints() {

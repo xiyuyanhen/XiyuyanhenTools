@@ -56,10 +56,10 @@ class SingleStepView : BaseView {
         let dotView = UIView.newAutoLayout()
         dotView.layer.masksToBounds = true
 
-        dotView.setXYControlStateChangeBlock(block: { (view, state) in
+        dotView.xyRxControlStateObservable.subscribe(onNext: { (view, stateOrNil) in
             
             let width : CGFloat
-            if state == .normal {
+            if stateOrNil == .normal {
                 
                 width = UIW(30)
             }else {
@@ -80,9 +80,9 @@ class SingleStepView : BaseView {
                 view.autoSetDimensions(to: CGSize(width: width, height: width))
             }
             
-        })
-        dotView.xyControlState = UIView.XYControlState.normal
-        
+        }).disposed(by: dotView.disposeBag)
+    
+        dotView.xyControlStateOrNil = UIView.XYControlState.normal
         
         return dotView
     }()
@@ -231,7 +231,7 @@ class MutableStepView : BaseView {
                 stepView.leftLine.backgroundColor = self.unSelectedColor
                 stepView.rightLine.backgroundColor = self.unSelectedColor
                 
-                stepView.dot.xyControlState = UIView.XYControlState.normal
+                stepView.dot.xyControlStateOrNil = UIView.XYControlState.normal
                 
             }else{
                 
@@ -239,7 +239,7 @@ class MutableStepView : BaseView {
                 stepView.leftLine.backgroundColor = self.unSelectedColor
                 stepView.rightLine.backgroundColor = self.unSelectedColor
                 
-                stepView.dot.xyControlState = UIView.XYControlState.selected
+                stepView.dot.xyControlStateOrNil = UIView.XYControlState.selected
             }
             
             lastViewOrNil = stepView

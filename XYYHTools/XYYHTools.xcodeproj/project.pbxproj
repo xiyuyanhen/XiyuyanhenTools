@@ -31,6 +31,7 @@
 		2375EC4B24E4301E0012F788 /* DebugToolsModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4624E4301E0012F788 /* DebugToolsModelType.swift */; };
 		2375EC4C24E4301E0012F788 /* DebugToolsMainManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4724E4301E0012F788 /* DebugToolsMainManagerViewController.swift */; };
 		2375EC4D24E4301E0012F788 /* DebugToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4824E4301E0012F788 /* DebugToolsViewController.swift */; };
+		2377D13924F6AF38007EA25E /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2377D13824F6AF38007EA25E /* CGRect+Extension.swift */; };
 		237EC83424EC1BE8002A66AE /* XYBmobObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237EC83324EC1BE8002A66AE /* XYBmobObjectProtocol.swift */; };
 		237EC83624EC1C6D002A66AE /* XYBmobDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237EC83524EC1C6D002A66AE /* XYBmobDemo.swift */; };
 		237EC83824EC20D4002A66AE /* XYBmobBaseObjectDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237EC83724EC20D4002A66AE /* XYBmobBaseObjectDemo.swift */; };
@@ -403,6 +404,7 @@
 		2375EC4624E4301E0012F788 /* DebugToolsModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsModelType.swift; sourceTree = "<group>"; };
 		2375EC4724E4301E0012F788 /* DebugToolsMainManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsMainManagerViewController.swift; sourceTree = "<group>"; };
 		2375EC4824E4301E0012F788 /* DebugToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsViewController.swift; sourceTree = "<group>"; };
+		2377D13824F6AF38007EA25E /* CGRect+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
 		237EC83324EC1BE8002A66AE /* XYBmobObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBmobObjectProtocol.swift; sourceTree = "<group>"; };
 		237EC83524EC1C6D002A66AE /* XYBmobDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBmobDemo.swift; sourceTree = "<group>"; };
 		237EC83724EC20D4002A66AE /* XYBmobBaseObjectDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBmobBaseObjectDemo.swift; sourceTree = "<group>"; };
@@ -1653,6 +1655,7 @@
 		238780A62438E0E800C57B15 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2377D13824F6AF38007EA25E /* CGRect+Extension.swift */,
 				238780A72438E0E800C57B15 /* UIImageView+Extension.swift */,
 				238780A82438E0E800C57B15 /* UIFont+Extension.swift */,
 				238780A92438E0E800C57B15 /* UIColor+Extension.swift */,
@@ -2373,6 +2376,7 @@
 				238781F32438E0E900C57B15 /* NSArray+Extension.swift in Sources */,
 				238781FC2438E0E900C57B15 /* UIControl+Extension.swift in Sources */,
 				238781C12438E0E900C57B15 /* UIView+Haneke.swift in Sources */,
+				2377D13924F6AF38007EA25E /* CGRect+Extension.swift in Sources */,
 				2375EC4B24E4301E0012F788 /* DebugToolsModelType.swift in Sources */,
 				238781D22438E0E900C57B15 /* mz_zip.c in Sources */,
 				238781882438E0E900C57B15 /* SKLocalPhoto.swift in Sources */,

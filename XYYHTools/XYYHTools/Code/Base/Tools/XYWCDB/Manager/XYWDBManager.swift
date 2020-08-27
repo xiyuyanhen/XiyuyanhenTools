@@ -111,17 +111,20 @@ class XYWDBManager: NSObject {
             
             try XYWDataBase.Bmob.db.run(transaction: {
                 
-                try XYWDataBase.Log.db.create(table: XYWTableName.BmobBaseObjectDemo.name, of: XYBmobBaseObjectDemo.self)
+                try XYWDataBase.Bmob.db.create(table: XYWTableName.BmobBaseObjectDemo.name, of: XYBmobBaseObjectDemo.self)
             })
             
             try XYWDataBase.Bmob.db.run(transaction: {
                 
-                try XYWDataBase.Log.db.create(table: XYWTableName.TableName_大乐透.name, of: XYBmobObject_大乐透.self)
+                try XYWDataBase.Bmob.db.create(table: XYWTableName.TableName_大乐透.name, of: XYBmobObject_大乐透.self)
             })
             
         } catch {
             
-            ShowSingleBtnAlertView(title: "数据库初始化失败!", message: "")
+            XYDispatchQueueType.Main.xyAsync {
+                
+                ShowSingleBtnAlertView(title: "数据库初始化失败!", message: "")
+            }
         }
     }
 }

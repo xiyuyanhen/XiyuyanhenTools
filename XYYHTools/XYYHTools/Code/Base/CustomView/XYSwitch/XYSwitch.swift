@@ -95,7 +95,7 @@ import RxCocoa
         
         let behavior = BehaviorRelay(value: false)
         
-        self.rightLabel.xyControlState = .selected
+        self.rightLabel.xyControlStateOrNil = .selected
         
         behavior.subscribe(onNext: { [weak self] (isOn) in
             
@@ -105,15 +105,15 @@ import RxCocoa
                 
                 weakSelf.animation(fromValue: 0, toValue: weakSelf.bounds.size.width/2)
                 
-                weakSelf.leftLabel.xyControlState = .normal
-                weakSelf.rightLabel.xyControlState = .selected
+                weakSelf.leftLabel.xyControlStateOrNil = .normal
+                weakSelf.rightLabel.xyControlStateOrNil = .selected
                 
             }else {
                 
                 weakSelf.animation(fromValue: weakSelf.bounds.size.width/2, toValue: 0)
                 
-                weakSelf.leftLabel.xyControlState = .selected
-                weakSelf.rightLabel.xyControlState = .normal
+                weakSelf.leftLabel.xyControlStateOrNil = .selected
+                weakSelf.rightLabel.xyControlStateOrNil = .normal
                 
             }
             
@@ -167,10 +167,10 @@ import RxCocoa
         
         willSet{
             
-            newValue.setXYControlStateChangeBlock { (label, state) in
-            
+            newValue.xyRxControlStateObservable.subscribe(onNext: { (label, stateOrNil) in
+                
                 let color : XYColor.CustomColor
-                if state == .selected {
+                if stateOrNil == .selected {
                     
                     color = .white
                 }else {
@@ -179,8 +179,10 @@ import RxCocoa
                 }
                 
                 label.textColor = color.uiColor
-            }
-            newValue.xyControlState = .selected
+                
+            }).disposed(by: newValue.disposeBag)
+            
+            newValue.xyControlStateOrNil = .selected
             
         }
     }
@@ -189,20 +191,22 @@ import RxCocoa
         
         willSet{
             
-            newValue.setXYControlStateChangeBlock { (label, state) in
+            newValue.xyRxControlStateObservable.subscribe(onNext: { (label, stateOrNil) in
                 
                 let color : XYColor.CustomColor
-                if state == .selected {
-                    
+                if stateOrNil == .selected {
+
                     color = .white
                 }else {
-                    
+
                     color = .x666666
                 }
                 
                 label.textColor = color.uiColor
-            }
-            newValue.xyControlState = .normal
+                
+            }).disposed(by: newValue.disposeBag)
+            
+            newValue.xyControlStateOrNil = .normal
             
         }
     }

@@ -228,6 +228,24 @@ extension DebugToolsMainManagerViewController : DebugToolsViewControllerDelegate
             
             //XYBmobDemo.AddTestObject()
             
+            let alertView = SubmitAlertView.Show(type: .Submiting)
+            
+            XYDispatchQueueType.Main.after(time: 1.0) {
+                
+                alertView?.type = .Success
+                
+                XYDispatchQueueType.Main.after(time: 1.0) {
+                    
+                    alertView?.type = .Failure
+                    
+                    XYDispatchQueueType.Main.after(time: 1.0) {
+                        
+                        alertView?.remove()
+                    }
+                }
+            }
+            
+            /*
             XYBmobBaseObjectDemo(dataObjectId: "Test000000", name: "测试数据000000").save { (result) in
                 
                 switch result {
@@ -245,6 +263,7 @@ extension DebugToolsMainManagerViewController : DebugToolsViewControllerDelegate
                     break
                 }
             }
+            */
             
             break
             
