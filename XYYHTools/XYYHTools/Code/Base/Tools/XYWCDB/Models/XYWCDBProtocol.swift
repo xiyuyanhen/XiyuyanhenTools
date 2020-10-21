@@ -29,6 +29,11 @@ extension XYWCDBProtocol {
         
         return className
     }
+    
+    var tableName: String {
+        
+        return self.className
+    }
 }
 
 // MARK: - Insert
@@ -73,7 +78,7 @@ extension XYWCDBProtocol {
             
             XYLog.LogNoteBlock { () -> String? in
             
-                return "成功保存数据\(objects.count)条"
+                return "Table:\(self.ClassName) 成功保存数据\(objects.count)条"
             }
             
             if let block = blockOrNil {

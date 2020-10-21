@@ -19,7 +19,7 @@ extension XYBmobObjectProtocol {
         
         guard let objectDataDic = self.objectDataDicOrNil else { fatalError() }
         
-        guard let newValue = BmobObject(className: self.className) else { return nil }
+        guard let newValue = BmobObject(className: self.tableName) else { return nil }
         
         for (key, value) in objectDataDic {
             

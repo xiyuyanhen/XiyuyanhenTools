@@ -28,11 +28,21 @@ struct RequestData_Bitstamp {
                     
                     break
                 }
-                break
+                
+                completion(nil)
+
+                return
+                
+            case .Error(_):
+                
+                completion(nil)
+                
+                return
+                
             default: break
             }
             
-            completion(nil)
+            
         }
     }
 }
