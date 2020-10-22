@@ -51,7 +51,7 @@ extension XYBmobObjectProtocol {
                         
                         //创建成功后会返回objectId，updatedAt，createdAt等信息
                         
-                        XYLog.LogNote(msg: "保存对象成功(objectId: \(objectId))")
+                        XYLog.LogNote(msg: "Bmob保存对象成功(objectId: \(objectId))")
                         
                         block(.Complete(weakObje))
 
@@ -59,13 +59,13 @@ extension XYBmobObjectProtocol {
 
                         let xyError = XYError(error: error)
 
-                        XYLog.LogNote(msg: "保存对象失败, code: \(xyError.code) msg: \(xyError.detailMsg)")
+                        XYLog.LogNote(msg: "Bmob保存对象失败, code: \(xyError.code) msg: \(xyError.detailMsg)")
                         
                         block(.Error(xyError))
                         
                     }else {
 
-                        XYLog.LogNote(msg: "保存对象失败, 未知错误")
+                        XYLog.LogNote(msg: "Bmob保存对象失败, 未知错误")
                         
                         block(.Error(XYBmobError.保存到Bmob失败.error()))
                     }

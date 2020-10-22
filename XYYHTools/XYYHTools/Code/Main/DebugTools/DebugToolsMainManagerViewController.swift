@@ -228,42 +228,92 @@ extension DebugToolsMainManagerViewController : DebugToolsViewControllerDelegate
             
             //XYBmobDemo.AddTestObject()
             
-            let alertView = SubmitAlertView.Show(type: .Submiting)
+//            let alertView = SubmitAlertView.Show(type: .Submiting)
+//
+//            XYDispatchQueueType.Main.after(time: 1.0) {
+//
+//                alertView?.type = .Success
+//
+//                XYDispatchQueueType.Main.after(time: 1.0) {
+//
+//                    alertView?.type = .Failure
+//
+//                    XYDispatchQueueType.Main.after(time: 1.0) {
+//
+//                        alertView?.remove()
+//                    }
+//                }
+//            }
             
-            XYDispatchQueueType.Main.after(time: 1.0) {
-                
-                alertView?.type = .Success
-                
-                XYDispatchQueueType.Main.after(time: 1.0) {
-                    
-                    alertView?.type = .Failure
-                    
-                    XYDispatchQueueType.Main.after(time: 1.0) {
-                        
-                        alertView?.remove()
-                    }
-                }
-            }
+//            guard let bmobObj = BmobObject(className: "TestC0001") else { return }
+//
+//            for (key, value) in ["Parameter1": "A", "Parameter2": 10] as [String : Any] {
+//
+//                bmobObj.setObject(value, forKey: key)
+//            }
+//
+//            bmobObj.saveInBackground { [weak bmobObj] (isSuccessful, errorOrNil) in
+//
+//                if isSuccessful,
+//                    let weakObje = bmobObj,
+//                    let objectId = weakObje.objectId,
+//                    objectId.isNotEmpty {
+//
+//                    //创建成功后会返回objectId，updatedAt，createdAt等信息
+//
+//                    XYLog.LogNote(msg: "Bmob保存对象成功(objectId: \(objectId))")
+//
+//
+//                }else if let error = errorOrNil {
+//
+//                    let xyError = XYError(error: error)
+//
+//                    XYLog.LogNote(msg: "Bmob保存对象失败, code: \(xyError.code) msg: \(xyError.detailMsg)")
+//
+//
+//                }else {
+//
+//                    XYLog.LogNote(msg: "Bmob保存对象失败, 未知错误")
+//
+//                }
+//            }
             
-            /*
-            XYBmobBaseObjectDemo(dataObjectId: "Test000000", name: "测试数据000000").save { (result) in
-                
+            
+//            XYBmobBaseObjectDemo(dataObjectId: "Test000001", name: "测试数据000001").save { (result) in
+//
+//                switch result {
+//
+//                case .Complete(let object):
+//
+//                    XYLog.Log(msg: "objectId: \(object.objectId)")
+//
+//                    break
+//
+//                case .Error(let error):
+//
+//                    XYLog.Log(msg: "code: \(error.code) msg: \(error.detailMsg)")
+//
+//                    break
+//                }
+//            }
+            
+            XYBmobObject_大乐透(dataObjectId: "Test0001", expect: "Test0001", date: "20201122").save { (result) in
+
                 switch result {
-                    
                 case .Complete(let object):
-                    
+
                     XYLog.Log(msg: "objectId: \(object.objectId)")
-                    
+
                     break
-                    
+
                 case .Error(let error):
-                    
-                    XYLog.Log(msg: "code: \(error.code) msg: \(error.detailMsg)")
-                    
+
+                    //XYLog.Log(msg: "code: \(error.code) msg: \(error.detailMsg)")
+
                     break
                 }
             }
-            */
+            
             
             break
             

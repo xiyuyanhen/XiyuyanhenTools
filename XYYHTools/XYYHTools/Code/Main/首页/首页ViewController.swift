@@ -31,27 +31,27 @@ class 首页ViewController : BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
-        XYBmobObject_大乐透.Request { (modelsOrNil) in
-            guard let models = modelsOrNil else { return }
-            
-            for model in models {
-                
-                model.save { (result) in
-                    
-                    switch result {
-                    case .Complete(let object):
-                        
-                        XYLog.LogNote(msg: "保存数据成功(\(object.objectId ?? ""))")
-                        break
-                        
-                    case .Error(let error):
-                        
-                        XYLog.LogNote(msg: "error: \(error.detailMsg)(\(error.code))")
-                        break
-                    }
-                }
-            }
-        }
+//        XYBmobObject_大乐透.Request { (modelsOrNil) in
+//            guard let models = modelsOrNil else { return }
+//
+//            for model in models {
+//
+//                model.save { (result) in
+//
+//                    switch result {
+//                    case .Complete(let object):
+//
+//                        XYLog.LogNote(msg: "保存数据成功(\(object.objectId ?? ""))")
+//                        break
+//
+//                    case .Error(let error):
+//
+//                        XYLog.LogNote(msg: "error: \(error.detailMsg)(\(error.code))")
+//                        break
+//                    }
+//                }
+//            }
+//        }
         
     }
     

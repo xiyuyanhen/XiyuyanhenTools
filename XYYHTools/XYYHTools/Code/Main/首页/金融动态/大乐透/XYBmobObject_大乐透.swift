@@ -31,6 +31,10 @@ class XYBmobObject_大乐透: XYBmobObjectProtocol {
     
     var objectDataDicOrNil: Dictionary<String, Any>? {
         
+//        return [CodingKeys.dataObjectId.stringValue: self.dataObjectId,
+//            CodingKeys.expect.stringValue: self.expect,
+//            CodingKeys.date.stringValue: self.date]
+        
         return [CodingKeys.dataObjectId.stringValue: self.dataObjectId,
             CodingKeys.expect.stringValue: self.expect,
             CodingKeys.date.stringValue: self.date,
@@ -82,7 +86,7 @@ class XYBmobObject_大乐透: XYBmobObjectProtocol {
     
     var tableName: String {
         
-        return "Daletou"
+        return "Financial_Daletou"
     }
 }
 
