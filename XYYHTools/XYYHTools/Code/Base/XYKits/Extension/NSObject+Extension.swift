@@ -39,9 +39,9 @@ extension NSObject : XYJsonHandleProtocol {
      *    @description 获取类名字符串
      *
      */
-    class func ClassName() -> String {
+    static var XYClassName: String {
         
-        let classString = "\(self)"//NSStringFromClass(self)
+        let classString = "\(self)"
         
         return classString
     }
@@ -50,15 +50,13 @@ extension NSObject : XYJsonHandleProtocol {
      *    @description 获取类名字符串
      *
      */
-    var className : String {
+    var xyClassName: String {
         
         guard let anyClass = object_getClass(self) else { return "unKnow" }
 
-        let className = "\(anyClass)"//NSStringFromClass(anyClass)
+        let className = "\(anyClass)"
         
         return className
-        
-//        return "\(type(of: self))" //className
     }
     
     /// 是否显示日志信息(默认不显示) - 方便控制调试信息的操控
@@ -72,7 +70,7 @@ extension NSObject : XYJsonHandleProtocol {
         let nowtime = TimeInterval(nowTimeInterval - 1483200000000000)
         let microsecond = Int64(nowtime)
         
-        let newId = "\(self.ClassName())_\(microsecond)"
+        let newId = "\(self.XYClassName)_\(microsecond)"
         
         return newId
     }

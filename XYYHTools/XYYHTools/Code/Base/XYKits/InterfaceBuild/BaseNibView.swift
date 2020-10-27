@@ -55,17 +55,17 @@ import Foundation
         
         super.updateConstraints()
         
-        XYLog.LogNote(msg: "\(self.className)--updateConstraints")
+        XYLog.LogNote(msg: "\(self.xyClassName)--updateConstraints")
     }
     
     func layoutAddViews() {
         
-        XYLog.LogNote(msg: "\(self.className)--layoutAddViews")
+        XYLog.LogNote(msg: "\(self.xyClassName)--layoutAddViews")
     }
     
     func layoutAllViews() {
         
-        XYLog.LogNote(msg: "\(self.className)--layoutAllViews")
+        XYLog.LogNote(msg: "\(self.xyClassName)--layoutAllViews")
     }
     
     func xyDidAddNibContentView() {

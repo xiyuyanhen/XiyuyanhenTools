@@ -54,7 +54,7 @@ extension XYNibLoadViewProtocol where Self : UIView {
     
     func loadNibView() -> UIView? {
         
-        let nibName : String = self.className
+        let nibName : String = self.xyClassName
         
         guard let nibArr = Bundle.main.loadNibNamed(nibName, owner: self, options: nil),
             let firstView = nibArr.first as? UIView else {

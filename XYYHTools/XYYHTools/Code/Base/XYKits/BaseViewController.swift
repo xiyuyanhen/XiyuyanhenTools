@@ -91,7 +91,7 @@ class BaseViewController: UIViewController, XYNibLoadViewControllerProtocol {
         
         self.xyLocationNotificationRemoveObservers()
         
-        XYLog.LogNote(msg: "\(self.className) -- deinit")
+        XYLog.LogNote(msg: "\(self.xyClassName) -- deinit")
     }
     
     /**
@@ -234,7 +234,7 @@ class BaseViewController: UIViewController, XYNibLoadViewControllerProtocol {
         
         self.changeCommondBackButtonItem()
         
-        XYLog.LogWarnning(msg: "\(self.className)--viewWillAppear", mark: "显示页面变动")
+        XYLog.LogWarnning(msg: "\(self.xyClassName)--viewWillAppear", mark: "显示页面变动")
     }
 
     
@@ -263,7 +263,7 @@ class BaseViewController: UIViewController, XYNibLoadViewControllerProtocol {
         
         self.viewDidDisappearCompletionHandle()
         
-        XYLog.LogWarnning(msg: "\(self.className)--viewDidDisappear", mark: "显示页面变动")
+        XYLog.LogWarnning(msg: "\(self.xyClassName)--viewDidDisappear", mark: "显示页面变动")
         
         guard let completionBlock = self.viewDidDisappearCompletionBlockOrNil else { return }
         

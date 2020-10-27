@@ -50,7 +50,7 @@ enum XYWTableName: String, TableNameProtocol {
     
     case logMsg = "WCDB_XYLogMsg"
     case BmobBaseObjectDemo = "XYBmobBaseObjectDemo"
-    case TableName_大乐透 = "Daletou"
+    case TableName_大乐透 = "Financial_Daletou"
 
     /// 表对应的数据库
     var dataBase: Database {

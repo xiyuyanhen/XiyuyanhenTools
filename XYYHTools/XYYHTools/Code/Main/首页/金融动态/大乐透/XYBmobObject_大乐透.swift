@@ -83,11 +83,6 @@ class XYBmobObject_大乐透: XYBmobObjectProtocol {
             ]
         }
     }
-    
-    var tableName: String {
-        
-        return "Financial_Daletou"
-    }
 }
 
 extension XYBmobObject_大乐透: StructModelProtocol_Create {

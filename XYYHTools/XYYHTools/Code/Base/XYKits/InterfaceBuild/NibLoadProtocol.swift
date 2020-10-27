@@ -24,7 +24,7 @@ extension XYNibLoadViewControllerProtocol where Self : UIViewController {
             nibName = nName
         }else {
             
-            nibName = Self.ClassName()
+            nibName = Self.XYClassName
         }
         
         guard XYBundle.NibFileIsExist(name: nibName),

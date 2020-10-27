@@ -118,7 +118,7 @@ class BaseCollectionViewCell: UICollectionViewCell {
     
     deinit {
         
-        XYLog.LogNote(msg: "\(self.className) -- deinit")
+        XYLog.LogNote(msg: "\(self.xyClassName) -- deinit")
     }
 }
 

@@ -199,7 +199,7 @@ extension WCDB_XYLogMsg : ModelProtocol_Array {
             
             if let error = errorOrNil {
                 
-                XYLog.Log(msg: "\(self.ClassName) - insertError: \(error.description)", type: .Error, isNeedSave: false)
+                XYLog.Log(msg: "\(self.Table.name) - insertError: \(error.description)", type: .Error, isNeedSave: false)
             }
             
         }) {

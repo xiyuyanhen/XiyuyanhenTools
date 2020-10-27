@@ -101,7 +101,7 @@ class BaseTableViewCell: UITableViewCell, XYNewSettingProtocol {
     
     override func updateConstraints() {
         
-        XYLog.LogNote(msg: "\(self.className).updateConstraints xyIsDidUpdateConstraints:\(self.xyIsDidUpdateConstraints)")
+        XYLog.LogNote(msg: "\(self.xyClassName).updateConstraints xyIsDidUpdateConstraints:\(self.xyIsDidUpdateConstraints)")
         
         if self.xyIsDidUpdateConstraints == false {
             
@@ -116,14 +116,14 @@ class BaseTableViewCell: UITableViewCell, XYNewSettingProtocol {
     
     func layoutAddViews() {
         
-        XYLog.LogNote(msg: "\(self.className).layoutAddViews")
+        XYLog.LogNote(msg: "\(self.xyClassName).layoutAddViews")
         
         self.contentView.addSubview(self.cellView)
     }
     
     func layoutAllViews() {
         
-        XYLog.LogNote(msg: "\(self.className).layoutAllViews")
+        XYLog.LogNote(msg: "\(self.xyClassName).layoutAllViews")
         
         self.cellView.autoEdgesPinView(otherView: self.contentView, edgeInsets: UIEdgeInsetsMake(0, 0, 0, 0))
     }
@@ -132,13 +132,13 @@ class BaseTableViewCell: UITableViewCell, XYNewSettingProtocol {
     
     deinit {
         
-        XYLog.LogNote(msg: "\(self.className) -- deinit")
+        XYLog.LogNote(msg: "\(self.xyClassName) -- deinit")
     }
     
     override func addSubview(_ view: UIView) {
         
         // 去掉系统分隔线
-        guard view.className != "_UITableViewCellSeparatorView" else { return }
+        guard view.xyClassName != "_UITableViewCellSeparatorView" else { return }
         
         super.addSubview(view)
     }

@@ -17,13 +17,20 @@ extension XYBmobObjectProtocol {
     
     var bmobObjectOrNil: BmobObject? {
         
-        guard let objectDataDic = self.objectDataDicOrNil else { fatalError() }
+        /*
+         1. className 不能包含中文，保存会报错(code:1)；
+        */
         
-        guard let newValue = BmobObject(className: self.tableName) else { return nil }
+        guard let newValue = BmobObject(className: Self.Table.name) else { return nil }
         
-        for (key, value) in objectDataDic {
+        if let objectDataDic = self.objectDataDicOrNil {
             
-            newValue.setObject(value, forKey: key)
+            newValue.saveAll(with: objectDataDic)
+            
+//            for (key, value) in objectDataDic {
+//
+//                newValue.setObject(value, forKey: key)
+//            }
         }
         
         return newValue

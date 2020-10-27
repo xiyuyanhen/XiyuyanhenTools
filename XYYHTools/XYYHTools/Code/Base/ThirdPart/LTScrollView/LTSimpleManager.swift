@@ -159,7 +159,7 @@
         
         deallocConfig()
         
-        XYLog.LogNote(msg: "\(self.className) -- deinit")
+        XYLog.LogNote(msg: "\(self.xyClassName) -- deinit")
     }
  }
  

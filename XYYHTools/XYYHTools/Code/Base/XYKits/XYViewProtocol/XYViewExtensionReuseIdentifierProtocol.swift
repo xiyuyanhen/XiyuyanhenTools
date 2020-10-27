@@ -48,7 +48,7 @@ extension UITableView {
             }
             
             /// nib文件名
-            let nibName: String = cClass.ClassName()
+            let nibName: String = cClass.XYClassName
             
             guard XYBundle.NibFileIsExist(name: nibName) else {
                 
@@ -92,7 +92,7 @@ extension UICollectionView {
             }
             
             /// nib文件名
-            let nibName: String = cClass.ClassName()
+            let nibName: String = cClass.XYClassName
             
             guard XYBundle.NibFileIsExist(name: nibName) else {
                 
@@ -114,7 +114,7 @@ extension UICollectionView {
         }
         
         /// nib文件名
-        let nibName: String = cClass.ClassName()
+        let nibName: String = cClass.XYClassName
         
         guard XYBundle.NibFileIsExist(name: nibName) else {
             

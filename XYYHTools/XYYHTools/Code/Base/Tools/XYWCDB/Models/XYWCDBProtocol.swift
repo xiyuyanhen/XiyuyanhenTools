@@ -16,24 +16,6 @@ protocol XYWCDBProtocol: WCDBSwift.TableCodable, ModelProtocol_Array {
 
 extension XYWCDBProtocol {
     
-    static var ClassName : String {
-        
-        return "\(self)"
-    }
-    
-    var className : String {
-        
-        guard let anyClass = object_getClass(self) else { return "unKnow" }
-        
-        let className = "\(anyClass)"
-        
-        return className
-    }
-    
-    var tableName: String {
-        
-        return self.className
-    }
 }
 
 // MARK: - Insert
@@ -62,7 +44,7 @@ extension XYWCDBProtocol {
             
             if let error = errorOrNil {
                 
-                XYLog.Log(msg: "\(self.ClassName) - insertError: \(error.description)", type: .Error)
+                XYLog.Log(msg: "\(self.Table.name) - insertError: \(error.description)", type: .Error)
                 
                 if let block = blockOrNil {
                     
@@ -78,7 +60,7 @@ extension XYWCDBProtocol {
             
             XYLog.LogNoteBlock { () -> String? in
             
-                return "Table:\(self.ClassName) 成功保存数据\(objects.count)条"
+                return "Table:\(self.Table.name) 成功保存数据\(objects.count)条"
             }
             
             if let block = blockOrNil {

@@ -67,6 +67,6 @@ extension XYObjectWithIdProtocol where Self : XYObject {
 
     static func CreateIdByClassAndTime() -> String {
         
-        return String.CreateIdByTime(className: self.ClassName())
+        return String.CreateIdByTime(className: self.XYClassName)
     }
 }

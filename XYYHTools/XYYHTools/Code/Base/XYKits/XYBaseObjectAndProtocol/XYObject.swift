@@ -16,7 +16,7 @@ class XYObject: NSObject, ModelProtocol_Array, XYObjectProtocol {
         
         #if DEBUG
         
-        //DebugToolsManage.AddForObjectRetain(self.className)
+        //DebugToolsManage.AddForObjectRetain(self.xyClassName)
 
         #else
         #endif
@@ -26,12 +26,12 @@ class XYObject: NSObject, ModelProtocol_Array, XYObjectProtocol {
         
         #if DEBUG
         
-        //DebugToolsManage.ReduceForObjectRetain(self.className)
+        //DebugToolsManage.ReduceForObjectRetain(self.xyClassName)
            
         #else
         #endif
         
-        XYLog.LogNote(msg: "\(self.className) -- deinit")
+        XYLog.LogNote(msg: "\(self.xyClassName) -- deinit")
     }
     
 }
