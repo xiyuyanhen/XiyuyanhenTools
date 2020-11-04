@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		231D83352552F84D000485DA /* 首页Views.xib in Resources */ = {isa = PBXBuildFile; fileRef = 231D83342552F84D000485DA /* 首页Views.xib */; };
+		231D83382552F8E9000485DA /* 大乐透_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D83372552F8E9000485DA /* 大乐透_TableViewCell.swift */; };
+		231D833B2552F8F2000485DA /* 大乐透_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 231D833A2552F8F2000485DA /* 大乐透_TableViewCell.xib */; };
 		235DAB4124398BC4004AFA53 /* XYLabelBriefConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DAB4024398BC4004AFA53 /* XYLabelBriefConfig.swift */; };
 		235DAB5424398CEA004AFA53 /* XYApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DAB4324398CEA004AFA53 /* XYApplication.swift */; };
 		235DAB5524398CEA004AFA53 /* ProjectSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DAB4424398CEA004AFA53 /* ProjectSetting.swift */; };
@@ -379,6 +382,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		231D83342552F84D000485DA /* 首页Views.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "首页Views.xib"; sourceTree = "<group>"; };
+		231D83372552F8E9000485DA /* 大乐透_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "大乐透_TableViewCell.swift"; sourceTree = "<group>"; };
+		231D833A2552F8F2000485DA /* 大乐透_TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "大乐透_TableViewCell.xib"; sourceTree = "<group>"; };
 		235DAB4024398BC4004AFA53 /* XYLabelBriefConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYLabelBriefConfig.swift; sourceTree = "<group>"; };
 		235DAB4324398CEA004AFA53 /* XYApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYApplication.swift; sourceTree = "<group>"; };
 		235DAB4424398CEA004AFA53 /* ProjectSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSetting.swift; sourceTree = "<group>"; };
@@ -924,6 +930,8 @@
 			isa = PBXGroup;
 			children = (
 				2382AF5424EEC55700F72192 /* XYBmobObject_大乐透.swift */,
+				231D83372552F8E9000485DA /* 大乐透_TableViewCell.swift */,
+				231D833A2552F8F2000485DA /* 大乐透_TableViewCell.xib */,
 			);
 			path = "大乐透";
 			sourceTree = "<group>";
@@ -1915,6 +1923,7 @@
 				23A56923246C4132004D2449 /* HomeworkItemTableViewCell.swift */,
 				23A56924246C4132004D2449 /* HomeworkItemTableViewCell.xib */,
 				23B5C8EC243AEDFB0044E8AB /* StockBrief_ContentView.swift */,
+				231D83342552F84D000485DA /* 首页Views.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2027,12 +2036,14 @@
 				238781C92438E0E900C57B15 /* Info-tvOS.plist in Resources */,
 				23877F4C2438D48500C57B15 /* LaunchScreen.storyboard in Resources */,
 				23877F492438D48500C57B15 /* Preview Assets.xcassets in Resources */,
+				231D833B2552F8F2000485DA /* 大乐透_TableViewCell.xib in Resources */,
 				238782282438E0E900C57B15 /* TestNibView.xib in Resources */,
 				238781462438E0E900C57B15 /* XYLogBrowseTableViewHeaderView.xib in Resources */,
 				238781942438E0E900C57B15 /* MJRefresh.bundle in Resources */,
 				238781642438E0E900C57B15 /* ZFPlayer.bundle in Resources */,
 				23A56926246C4132004D2449 /* HomeworkItemTableViewCell.xib in Resources */,
 				23877F462438D48500C57B15 /* Assets.xcassets in Resources */,
+				231D83352552F84D000485DA /* 首页Views.xib in Resources */,
 				238782312438E0E900C57B15 /* BaseNibView.xib in Resources */,
 				23FABAD1244B1D1800298C77 /* WebBrower_Storyboard.storyboard in Resources */,
 			);
@@ -2129,6 +2140,7 @@
 				238781A32438E0E900C57B15 /* MJRefreshAutoFooter.m in Sources */,
 				238781562438E0E900C57B15 /* ZFPlayerLogManager.m in Sources */,
 				238781222438E0E900C57B15 /* ZipHandle.swift in Sources */,
+				231D83382552F8E9000485DA /* 大乐透_TableViewCell.swift in Sources */,
 				238781892438E0E900C57B15 /* SKPhoto.swift in Sources */,
 				238781DC2438E0E900C57B15 /* mz_strm_buf.c in Sources */,
 				238781812438E0E900C57B15 /* UIApplication+UIWindow.swift in Sources */,

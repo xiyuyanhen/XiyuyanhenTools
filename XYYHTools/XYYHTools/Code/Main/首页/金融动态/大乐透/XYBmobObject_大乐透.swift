@@ -256,7 +256,7 @@ extension XYBmobObject_大乐透: StructModelProtocol_Create {
     }
     
     
-    static func Request(completion: @escaping CompletionElementBlockHandler<[XYBmobObject_大乐透]>) {
+    static func Request(size: Int, completion: @escaping CompletionElementBlockHandler<[XYBmobObject_大乐透]>) {
         
         /*
          https://webapi.sporttery.cn/gateway/lottery/getHistoryPageListV1.qry?gameNo=85&provinceId=0&pageSize=5&isVerify=1&pageNo=1&termLimits=5
@@ -264,10 +264,10 @@ extension XYBmobObject_大乐透: StructModelProtocol_Create {
         
         let parameters = ["gameNo":"85",
                     "provinceId":"0",
-                    "pageSize":"5",
+                    "pageSize":"\(size)",
                     "isVerify":"1",
                     "pageNo":"1",
-                    "termLimits":"5"]
+                    "termLimits":"\(size)"]
         
         RequestConfig(scheme: "https://webapi.sporttery.cn", path: "gateway/lottery/getHistoryPageListV1.qry", parametersOrNil: parameters).get { (requestState) in
             

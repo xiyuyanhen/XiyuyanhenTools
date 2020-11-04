@@ -31,28 +31,7 @@ class 首页ViewController : BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
-        XYBmobObject_大乐透.Request { (modelsOrNil) in
-            guard let models = modelsOrNil else { return }
-
-            for model in models {
-
-                model.save { (result) in
-
-                    switch result {
-                    case .Complete(let object):
-
-                        XYLog.LogNote(msg: "保存数据成功(\(object.objectId ?? ""))")
-                        break
-
-                    case .Error(let error):
-
-                        XYLog.LogNote(msg: "error: \(error.detailMsg)(\(error.code))")
-                        break
-                    }
-                }
-            }
-        }
-        
+        self.refreshData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,7 +72,7 @@ class 首页ViewController : BaseViewController {
             newValue.showsVerticalScrollIndicator = false
             newValue.showsHorizontalScrollIndicator = false
             
-            newValue.xyRegisterNib(TableViewCell.self)
+            newValue.xyRegisterNib(HomeworkItemTableViewCell.self, 大乐透_TableViewCell.self)
             
             newValue.estimatedSectionHeaderHeight = 0.0
             
@@ -111,16 +90,7 @@ class 首页ViewController : BaseViewController {
 
             guard let weakSelf = self else { return }
             
-            RequestData_Bitstamp.Ticker { (modelOrNil) in
-                
-                weakSelf.refreshHeader.endRefreshing()
-                
-                guard let model = modelOrNil else { return }
-                
-                weakSelf.dataArr.append(model)
-                
-                weakSelf.tableView.reloadData()
-            }
+            weakSelf.refreshData()
         })
     }()
     
@@ -128,6 +98,10 @@ class 首页ViewController : BaseViewController {
         
         return TableViewSectionData()
     }()
+    
+    private var virtualCurrencyModelOrNil: VirtualCurrencyModel?
+    
+    private var 大乐透ModelOrNil: XYBmobObject_大乐透?
     
     @IBOutlet weak var headerView: UIView!
     
@@ -137,7 +111,6 @@ extension 首页ViewController: UITableViewDelegate, UITableViewDataSource {
     
     typealias TableViewRowData = Any
     typealias TableViewSectionData = [TableViewRowData]
-    typealias TableViewCell = HomeworkItemTableViewCell
     
     func numberOfSections(in tableView: UITableView) -> Int {
             
@@ -174,23 +147,28 @@ extension 首页ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell: UITableViewCell
-        
-        let newValue = tableView.dequeueReusableCell(withIdentifier: TableViewCell.ReuseIdentifier(), for: indexPath) as! TableViewCell
-                
+             
         if let element = self.dataArr.elementByIndex(indexPath.row) {
             
             if let model = element as? VirtualCurrencyModel {
                 
+                let newValue = tableView.dequeueReusableCell(withIdentifier: HomeworkItemTableViewCell.ReuseIdentifier(), for: indexPath) as! HomeworkItemTableViewCell
+                
                 newValue.setupsBy(model: model)
+                
+                return newValue
+                
+            }else if let model = element as? XYBmobObject_大乐透 {
+                
+                let newValue = tableView.dequeueReusableCell(withIdentifier: 大乐透_TableViewCell.ReuseIdentifier(), for: indexPath) as! 大乐透_TableViewCell
+                
+                newValue.setupsBy(model: model)
+                
+                return newValue
             }
-            
         }
 
-        cell = newValue
-        
-        return cell
+        fatalError()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -202,6 +180,71 @@ extension 首页ViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension 首页ViewController {
     
+    private func refreshData() {
+        
+        /// BTC
+        RequestData_Bitstamp.Ticker { [weak self] (modelOrNil) in
+            guard let weakSelf = self else { return }
+            
+            weakSelf.refreshHeader.endRefreshing()
+            
+            guard let model = modelOrNil else { return }
+            
+            weakSelf.virtualCurrencyModelOrNil = model
+            
+            weakSelf.reloadDataTableView()
+    
+        }
+        
+        /// 大乐透
+        XYBmobObject_大乐透.Request(size: 1) { [weak self] (modelsOrNil) in
+            
+            guard let weakSelf = self else { return }
+            
+            weakSelf.refreshHeader.endRefreshing()
+            
+            guard let models = modelsOrNil,
+                let model = models.first else { return }
+            
+            weakSelf.大乐透ModelOrNil = model
+            
+            weakSelf.reloadDataTableView()
+            
+            model.save { (result) in
+
+                switch result {
+                case .Complete(let object):
+
+                    XYLog.LogNote(msg: "保存数据成功(\(object.objectId ?? ""))")
+                    break
+
+                case .Error(let error):
+
+                    XYLog.LogNote(msg: "error: \(error.detailMsg)(\(error.code))")
+                    break
+                }
+            }
+        }
+    }
+    
+    private func reloadDataTableView() {
+        
+        var dataArr = TableViewSectionData()
+        
+        if let model = self.virtualCurrencyModelOrNil {
+            
+            dataArr.append(model)
+        }
+        
+        if let model = self.大乐透ModelOrNil {
+            
+            dataArr.append(model)
+        }
+        
+        self.dataArr = dataArr
+        
+        self.tableView.reloadData()
+    }
 }
 
 extension 首页ViewController: XYStoryboardLoadProtocol {
