@@ -14,6 +14,13 @@ protocol XYNetworkPagingDataProtocol : ModelProtocol_Array {
     var elementId : String { get }
 }
 
+class XYNetworkPagingDataBase: XYObject, XYNetworkPagingDataProtocol, XYItemSearch_Protocol {
+    
+    var elementId : String { return "" }
+    
+    var itemSearchId: String { return "" }
+}
+
 class XYNetworkPagingData<Element: XYNetworkPagingDataProtocol>: XYObject {
     
     /// 数据存储集
@@ -42,11 +49,17 @@ class XYNetworkPagingData<Element: XYNetworkPagingDataProtocol>: XYObject {
         return PublishSubject<XYNetworkPagingData>()
     }()
     
-    /// 下拉刷新控件
-    weak var refreshHeaderOrNil: MJRefreshHeader?
+    /// 下拉刷新控件集
+    fileprivate lazy var refreshHeaders: Dictionary<String, MJRefreshHeader> = {
+        
+        return Dictionary<String, MJRefreshHeader>()
+    }()
     
-    /// 上拉刷新控件
-    weak var refreshFooterOrNil: MJRefreshFooter?
+    /// 上拉刷新控件集
+    fileprivate lazy var refreshFooters: Dictionary<String, MJRefreshFooter> = {
+        
+        return Dictionary<String, MJRefreshFooter>()
+    }()
     
     override init() {
         
@@ -162,6 +175,35 @@ extension XYNetworkPagingData {
      *
      *    @return   (index: String, size: String)
      */
+    func indexAndSizeBy(status: XYNPDLoadStatus) -> (index: Int, size: Int) {
+        
+        switch status {
+        case .CanLoadMore:
+            // 加载下一页的数据参数
+            if let nextPageIndex = self.nextPageIndexForLoadMoreDataOrNil {
+                
+                return (index: nextPageIndex, size: self.loadPageSize)
+            }
+            break
+            
+        case .Update(let index):
+            // 更新指定页的数据参数
+            return (index: index, size: self.loadPageSize)
+
+        default: break
+        }
+        
+        // 更新首页的数据参数
+        return (index: XYNetworkPagingData.FirstPageIndex, size: self.loadPageSize)
+    }
+    
+    /**
+     *    @description 根据数据加载状态返回对应的请求参数
+     *
+     *    @param    status    XYNPDLoadStatus
+     *
+     *    @return   (index: String, size: String)
+     */
     func indexAndSizeByLoadStatus(status: XYNPDLoadStatus) -> (index: Int, indexText: String, sizeText: String) {
         
         switch status {
@@ -235,7 +277,7 @@ extension XYNetworkPagingData {
     typealias InsertElementsCompletionBlock = (_ index: Int, _ pagingData: XYNetworkPagingData) -> Void
     
     /**
-     *    @description 将数据插入第Index页
+     *    @description 将数据插入第Index页 (该方法会根据数据数量调整后续请求状态)
      *
      *    @param    index    第index页
      *
@@ -292,7 +334,7 @@ extension XYNetworkPagingData {
                 self.loadDataStatus = XYNPDLoadStatus.NeedLoadFirst
             }else {
                 
-                // 重置状态: 可以继续请求数据
+                // 重置状态: 无更多数据
                 self.loadDataStatus = XYNPDLoadStatus.NoMoreData
             }
             
@@ -302,7 +344,7 @@ extension XYNetworkPagingData {
             self.loadDataStatus = XYNPDLoadStatus.CanLoadMore
         }
         
-        self.elementsDic.xySetObject(elements, forKey: self.pageIndexKeyBy(index: index))
+        self.setElements(index: index, elements: elements)
     }
     
     /**
@@ -313,9 +355,9 @@ extension XYNetworkPagingData {
      *    @param    elements    数据组
      *
      */
-    func insertElements(index: Int, elements: Element.ModelArray) {
+    func setElements(index: Int, elements: Element.ModelArray) {
         
-        self.elementsDic[self.pageIndexKeyBy(index: index)] = elements
+        self.elementsDic.xySetObject(elements, forKey: self.pageIndexKeyBy(index: index))
     }
     
     
@@ -591,38 +633,187 @@ extension XYNetworkPagingData {
 // MARK: - MJRefresh
 extension XYNetworkPagingData {
     
+    /// 绑定新的RefreshHeader
+    @discardableResult func bindNewRefreshHeaderBy(_ headerOrNil: MJRefreshHeader?, key keyOrNil: String? = nil) -> (key: String, header: MJRefreshHeader)? {
+        
+        guard let header = headerOrNil else { return nil }
+        
+        let headerKey: String
+        if let key = keyOrNil,
+           key.isNotEmpty {
+            
+            headerKey = key
+        }else {
+            
+            headerKey = header.xy_RAMAddress.MD5String()
+        }
+        
+        guard let cacheHeader = self.refreshHeaders.xyObjectValue(headerKey) else {
+            
+            // 此headerKey未绑定Header，直接绑定
+            
+            self.refreshHeaders.xySetObject(header, forKey: headerKey)
+            
+            return (key: headerKey, header: header)
+        }
+        
+        guard cacheHeader != header else {
+            
+            // 此headerKey绑定的Header与将要绑定的Header相同，不处理
+            
+            return (key: headerKey, header: header)
+        }
+        
+        // 此headerKey绑定的Header与将要绑定的Header不相同，替换
+        
+        self.refreshHeaders.xySetObject(header, forKey: headerKey)
+        
+        // 结束被替换的Header的状态
+        cacheHeader.endRefreshing()
+        
+        return (key: headerKey, header: header)
+    }
+    
+    /**
+     *    @description 根据key获取对应的RefreshHeader
+     *
+     *    @param    key    String
+     *
+     *    @return   RefreshHeader
+     */
+    func refreshHeaderBy(_ keyOrNil: String?) -> MJRefreshHeader? {
+        
+        guard let key = keyOrNil,
+            let header = self.refreshHeaders.xyObjectValue(key) else {
+            
+            return nil
+        }
+        
+        return header
+    }
+    
+    /// 绑定新的RefreshFooter
+    @discardableResult func bindNewRefreshFooterBy(_ footerOrNil: MJRefreshFooter?, key keyOrNil: String? = nil) -> (key: String, footer: MJRefreshFooter)? {
+        
+        guard let footer = footerOrNil else { return nil }
+        
+        let footerKey: String
+        if let key = keyOrNil,
+           key.isNotEmpty {
+            
+            footerKey = key
+        }else {
+            
+            footerKey = footer.xy_RAMAddress.MD5String()
+        }
+        
+        guard let cacheFooter = self.refreshFooters.xyObjectValue(footerKey) else {
+            
+            // 此headerKey未绑定Header，直接绑定
+            
+            self.refreshFooters.xySetObject(footer, forKey: footerKey)
+            
+            return (key: footerKey, footer: footer)
+        }
+        
+        guard cacheFooter != footer else {
+            
+            // 此headerKey绑定的Header与将要绑定的Header相同，不处理
+            
+            return (key: footerKey, footer: footer)
+        }
+        
+        // 此headerKey绑定的Header与将要绑定的Header不相同，替换
+        
+        self.refreshFooters.xySetObject(footer, forKey: footerKey)
+        
+        // 结束被替换的Header的状态
+        cacheFooter.endRefreshing()
+        
+        return (key: footerKey, footer: footer)
+    }
+    
+    /**
+     *    @description 根据key获取对应的RefreshHeader
+     *
+     *    @param    key    String
+     *
+     *    @return   RefreshHeader
+     */
+    func refreshFooterBy(_ keyOrNil: String?) -> MJRefreshFooter? {
+        
+        guard let key = keyOrNil,
+            let footer = self.refreshFooters.xyObjectValue(key) else {
+            
+            return nil
+        }
+        
+        return footer
+    }
+    
     /**
      *    @description 停止刷新动画
      *
      */
-    func endRefreshing() {
+    func endRefreshing(key keyOrNil: String? = nil) {
         
-        if let refreshHeader = self.refreshHeaderOrNil,
-            refreshHeader.state == MJRefreshStateRefreshing {
-
-            refreshHeader.endRefreshing()
+        // Header
+        
+        func endRefreshHeader(_ headerOrNil: MJRefreshHeader?) {
             
-            // 如果是下拉刷新首页，要将已经没有更多数据状态下的上拉刷新重置
-            if let refreshFooter = self.refreshFooterOrNil,
-                refreshFooter.state == MJRefreshStateNoMoreData {
-                
-                refreshFooter.endRefreshing()
+            if let header = headerOrNil {
+
+                header.endRefreshing()
             }
         }
         
-        if let refreshFooter = self.refreshFooterOrNil,
-            refreshFooter.state == MJRefreshStateRefreshing {
+        if let key = keyOrNil {
             
-            if self.loadDataStatus.xyEqual(types: .NoMoreData) {
+            endRefreshHeader(self.refreshHeaderBy(key))
+            
+        }else {
+            
+            for header in self.refreshHeaders.values {
                 
-                refreshFooter.endRefreshingWithNoMoreData()
-            }else {
+                endRefreshHeader(header)
+            }
+        }
+        
+        // Footer
+        
+        func endRefreshFooter(_ footerOrNil: MJRefreshFooter?) {
+            
+            if let footer = footerOrNil {
+
+                if self.currentPageIsFirst,
+                   footer.state == MJRefreshStateNoMoreData {
+                    // 如果是下拉刷新首页，要将已经没有更多数据状态下的上拉刷新重置
+                    
+                    footer.endRefreshing()
+                    
+                }else if self.loadDataStatus.xyEqual(types: .NoMoreData) {
+                    
+                    footer.endRefreshingWithNoMoreData()
+                    
+                }else {
+                    
+                    footer.endRefreshing()
+                }
+            }
+        }
+        
+        if let key = keyOrNil {
+            
+            endRefreshFooter(self.refreshFooterBy(key))
+            
+        }else {
+            
+            for footer in self.refreshFooters.values {
                 
-                refreshFooter.endRefreshing()
+                endRefreshFooter(footer)
             }
         }
     }
     
 }
-
 

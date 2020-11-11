@@ -39,6 +39,7 @@
 		237EC83624EC1C6D002A66AE /* XYBmobDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237EC83524EC1C6D002A66AE /* XYBmobDemo.swift */; };
 		237EC83824EC20D4002A66AE /* XYBmobBaseObjectDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237EC83724EC20D4002A66AE /* XYBmobBaseObjectDemo.swift */; };
 		2382AF5524EEC55700F72192 /* XYBmobObject_大乐透.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2382AF5424EEC55700F72192 /* XYBmobObject_大乐透.swift */; };
+		23845894255C2E3800E2D0C3 /* 大乐透ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23845893255C2E3800E2D0C3 /* 大乐透ListViewController.swift */; };
 		23877F402438D48400C57B15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23877F3F2438D48400C57B15 /* AppDelegate.swift */; };
 		23877F422438D48400C57B15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23877F412438D48400C57B15 /* SceneDelegate.swift */; };
 		23877F442438D48400C57B15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23877F432438D48400C57B15 /* ContentView.swift */; };
@@ -415,6 +416,7 @@
 		237EC83524EC1C6D002A66AE /* XYBmobDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBmobDemo.swift; sourceTree = "<group>"; };
 		237EC83724EC20D4002A66AE /* XYBmobBaseObjectDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYBmobBaseObjectDemo.swift; sourceTree = "<group>"; };
 		2382AF5424EEC55700F72192 /* XYBmobObject_大乐透.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XYBmobObject_大乐透.swift"; sourceTree = "<group>"; };
+		23845893255C2E3800E2D0C3 /* 大乐透ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "大乐透ListViewController.swift"; sourceTree = "<group>"; };
 		23877F3C2438D48400C57B15 /* 我的工具箱.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "我的工具箱.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23877F3F2438D48400C57B15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23877F412438D48400C57B15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -932,6 +934,7 @@
 				2382AF5424EEC55700F72192 /* XYBmobObject_大乐透.swift */,
 				231D83372552F8E9000485DA /* 大乐透_TableViewCell.swift */,
 				231D833A2552F8F2000485DA /* 大乐透_TableViewCell.xib */,
+				23845893255C2E3800E2D0C3 /* 大乐透ListViewController.swift */,
 			);
 			path = "大乐透";
 			sourceTree = "<group>";
@@ -2313,6 +2316,7 @@
 				2387820F2438E0E900C57B15 /* XYEnumTypeProtocol.swift in Sources */,
 				238781D02438E0E900C57B15 /* mz_strm_pkcrypt.c in Sources */,
 				2387823D2438E0E900C57B15 /* XYSwitch.swift in Sources */,
+				23845894255C2E3800E2D0C3 /* 大乐透ListViewController.swift in Sources */,
 				238781ED2438E0E900C57B15 /* BaseTextView.swift in Sources */,
 				238781CA2438E0E900C57B15 /* Cache.swift in Sources */,
 				238781612438E0E900C57B15 /* ZFVolumeBrightnessView.m in Sources */,

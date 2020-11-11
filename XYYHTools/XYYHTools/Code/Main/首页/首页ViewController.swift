@@ -18,8 +18,6 @@ class 首页ViewController : BaseViewController {
     override func initProperty() {
         super.initProperty()
         
-        self.title = "检查作业"
-        
         self.navigationBarHidden = true
     }
     
@@ -175,6 +173,22 @@ extension 首页ViewController: UITableViewDelegate, UITableViewDataSource {
         
         tableView.deselectRow(at: indexPath, animated: true)
     
+        if let element = self.dataArr.elementByIndex(indexPath.row) {
+            
+            if let _ = element as? VirtualCurrencyModel {
+                
+                
+                
+                return
+                
+            }else if let _ = element as? XYBmobObject_大乐透,
+                let listVC = 大乐透ListViewController.LoadFromStoryboard() {
+                
+                self.navigationController?.present(listVC.newNavigationController(), animated: true, completion: nil)
+                
+                return
+            }
+        }
     }
 }
 
@@ -197,7 +211,7 @@ extension 首页ViewController {
         }
         
         /// 大乐透
-        XYBmobObject_大乐透.Request(size: 1) { [weak self] (modelsOrNil) in
+        XYBmobObject_大乐透.Request(size: 1, pageNo: 1) { [weak self] (modelsOrNil) in
             
             guard let weakSelf = self else { return }
             

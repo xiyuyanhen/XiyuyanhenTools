@@ -85,6 +85,14 @@ class XYBmobObject_大乐透: XYBmobObjectProtocol {
     }
 }
 
+extension XYBmobObject_大乐透: XYNetworkPagingDataProtocol {
+    
+    var elementId: String {
+        
+        return self.dataObjectId
+    }
+}
+
 extension XYBmobObject_大乐透: StructModelProtocol_Create {
     
     static func CreateModel(dataDic dataDicOrNil: NSDictionary?, extraData eDataOrNil: Any?) -> XYBmobObject_大乐透? {
@@ -256,18 +264,22 @@ extension XYBmobObject_大乐透: StructModelProtocol_Create {
     }
     
     
-    static func Request(size: Int, completion: @escaping CompletionElementBlockHandler<[XYBmobObject_大乐透]>) {
+    static func Request(size: Int, pageNo: Int, completion: @escaping CompletionElementBlockHandler<[XYBmobObject_大乐透]>) {
         
-        /*
-         https://webapi.sporttery.cn/gateway/lottery/getHistoryPageListV1.qry?gameNo=85&provinceId=0&pageSize=5&isVerify=1&pageNo=1&termLimits=5
+        /* https://www.lottery.gov.cn/dlt/index.html
+         
+         分页请求：
+         https://webapi.sporttery.cn/gateway/lottery/getHistoryPageListV1.qry?gameNo=85&provinceId=0&pageSize=5&isVerify=1&pageNo=1
+         
+         从第n期到第m期
+         https://webapi.sporttery.cn/gateway/lottery/getHistoryPageListV1.qry?gameNo=85&provinceId=0&pageSize=100&isVerify=1&pageNo=1&startTerm=20112&endTerm=20113
          */
         
         let parameters = ["gameNo":"85",
                     "provinceId":"0",
-                    "pageSize":"\(size)",
                     "isVerify":"1",
-                    "pageNo":"1",
-                    "termLimits":"\(size)"]
+                    "pageSize":"\(size)",
+                    "pageNo":"\(pageNo)"]
         
         RequestConfig(scheme: "https://webapi.sporttery.cn", path: "gateway/lottery/getHistoryPageListV1.qry", parametersOrNil: parameters).get { (requestState) in
             
