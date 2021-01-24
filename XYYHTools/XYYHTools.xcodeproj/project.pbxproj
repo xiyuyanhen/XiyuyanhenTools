@@ -367,6 +367,7 @@
 		2399EFBB24B30AAB00741E0B /* WCDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399EFB724B30AAB00741E0B /* WCDBManager.swift */; };
 		2399EFBC24B30AAB00741E0B /* XYWDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399EFB824B30AAB00741E0B /* XYWDBManager.swift */; };
 		2399EFBF24B32D4200741E0B /* Loading-effect-Balls-200.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2399EFBE24B32D4200741E0B /* Loading-effect-Balls-200.gif */; };
+		239B889525BD71DD00978291 /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 239B889425BD71DD00978291 /* CoreAudioKit.framework */; };
 		23A56922246C3FDC004D2449 /* VirtualCurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A56921246C3FDC004D2449 /* VirtualCurrencyModel.swift */; };
 		23A56925246C4132004D2449 /* HomeworkItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A56923246C4132004D2449 /* HomeworkItemTableViewCell.swift */; };
 		23A56926246C4132004D2449 /* HomeworkItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A56924246C4132004D2449 /* HomeworkItemTableViewCell.xib */; };
@@ -831,6 +832,7 @@
 		2399EFB724B30AAB00741E0B /* WCDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCDBManager.swift; sourceTree = "<group>"; };
 		2399EFB824B30AAB00741E0B /* XYWDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYWDBManager.swift; sourceTree = "<group>"; };
 		2399EFBE24B32D4200741E0B /* Loading-effect-Balls-200.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Loading-effect-Balls-200.gif"; sourceTree = "<group>"; };
+		239B889425BD71DD00978291 /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		23A56921246C3FDC004D2449 /* VirtualCurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualCurrencyModel.swift; sourceTree = "<group>"; };
 		23A56923246C4132004D2449 /* HomeworkItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeworkItemTableViewCell.swift; sourceTree = "<group>"; };
 		23A56924246C4132004D2449 /* HomeworkItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeworkItemTableViewCell.xib; sourceTree = "<group>"; };
@@ -854,6 +856,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				235DAB772439D7FA004AFA53 /* libiconv.2.4.0.tbd in Frameworks */,
+				239B889525BD71DD00978291 /* CoreAudioKit.framework in Frameworks */,
 				377F47F4E0D1C039FDB4D5E6 /* Pods_XYYHTools.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1955,6 +1958,7 @@
 		5261B158252E205F09686607 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				239B889425BD71DD00978291 /* CoreAudioKit.framework */,
 				235DAB762439D7E5004AFA53 /* libiconv.2.4.0.tbd */,
 				B867E9C6635D2E99D3A01CC3 /* Pods_XYYHTools.framework */,
 			);
@@ -2594,6 +2598,7 @@
 				DEVELOPMENT_TEAM = 4AGJM83C9K;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = XYYHTools/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2617,6 +2622,7 @@
 				DEVELOPMENT_TEAM = 4AGJM83C9K;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = XYYHTools/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
