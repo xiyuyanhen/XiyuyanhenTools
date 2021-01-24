@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             XYBmobTools.Register()
         }
         
+        //ODClient(url: <#T##String!#>, httpProvider: <#T##ODHttpProvider!#>, authProvider: <#T##ODAuthProvider!#>)
+        
         return true
     }
 

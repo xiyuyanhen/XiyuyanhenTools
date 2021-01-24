@@ -32,6 +32,9 @@ def public_pods
 
   pod 'BmobSDK'
 
+  pod 'OneDriveSDK'
+  #pod 'PandoraPlayer'
+
 end
 
 ########################################################

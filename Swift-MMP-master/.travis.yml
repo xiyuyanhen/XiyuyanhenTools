@@ -1,0 +1,4 @@
+os: osx
+osx_image: xcode9
+language: objective-c
+script: xcodebuild test -project Swift-MMP.xcodeproj -scheme Swift-MMP -destination 'platform=iOS Simulator,name=iPhone 7,OS=latest' test

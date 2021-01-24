@@ -35,5 +35,7 @@
 
 #import <BmobSDK/Bmob.h>
 
+#import <OneDriveSDK/OneDriveSDK.h>
+
 #endif /* OCToSwiftBridging_h */
 

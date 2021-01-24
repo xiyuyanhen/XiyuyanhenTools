@@ -44,7 +44,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="xyIBBorderWidth">
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="xyIBBorderColorText" value="ffff3c30"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="xyIBBorderColorText" value="ff309af2"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
@@ -79,7 +79,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="xyIBBorderWidth">
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="xyIBBorderColorText" value="ffff3c30"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="xyIBBorderColorText" value="ff309af2"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
@@ -113,7 +113,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="xyIBBorderWidth">
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="xyIBBorderColorText" value="ffff3c30"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="xyIBBorderColorText" value="ff309af2"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
@@ -147,7 +147,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="xyIBBorderWidth">
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="xyIBBorderColorText" value="ffff3c30"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="xyIBBorderColorText" value="ff309af2"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
@@ -181,7 +181,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="xyIBBorderWidth">
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="xyIBBorderColorText" value="ffff3c30"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="xyIBBorderColorText" value="ff309af2"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
@@ -209,7 +209,7 @@
                                         <color key="textColor" red="1" green="0.23529411759999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="xyIBBorderColorText" value="ff309af2"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="xyIBBorderColorText" value="ffff3c30"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="xyIBCornerRadius">
                                                 <real key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
@@ -249,7 +249,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="xyIBBorderWidth">
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="xyIBBorderColorText" value="ff309af2"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="xyIBBorderColorText" value="ffff3c30"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
