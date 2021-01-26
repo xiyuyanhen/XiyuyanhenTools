@@ -31,7 +31,8 @@ def public_pods
   #pod 'RxDataSources'
 
   pod 'BmobSDK'
-
+  
+  pod 'MSAL'
   pod 'OneDriveSDK'
   #pod 'PandoraPlayer'
 
