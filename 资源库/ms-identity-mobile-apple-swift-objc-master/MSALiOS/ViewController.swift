@@ -26,7 +26,7 @@
 //------------------------------------------------------------------------------
 
 import UIKit
-import MSAL
+//import MSAL
 
 /// 😃 A View Controller that will respond to the events of the Storyboard.
 
@@ -129,7 +129,7 @@ extension ViewController {
     }
     
     func initWebViewParams() {
-        self.webViewParamaters = MSALWebviewParameters(authPresentationViewController: self)
+        self.webViewParamaters = MSALWebviewParameters(parentViewController: self)
     }
 }
 
@@ -140,17 +140,17 @@ extension ViewController {
     @objc func getDeviceMode(_ sender: UIButton) {
         
         if #available(iOS 13.0, *) {
-            self.applicationContext?.getDeviceInformation(with: nil, completionBlock: { (deviceInformation, error) in
-                
-                guard let deviceInfo = deviceInformation else {
-                    self.updateLogging(text: "Device info not returned. Error: \(String(describing: error))")
-                    return
-                }
-                
-                let isSharedDevice = deviceInfo.deviceMode == .shared
-                let modeString = isSharedDevice ? "shared" : "private"
-                self.updateLogging(text: "Received device info. Device is in the \(modeString) mode.")
-            })
+//            self.applicationContext?.getDeviceInformation(with: nil, completionBlock: { (deviceInformation, error) in
+//
+//                guard let deviceInfo = deviceInformation else {
+//                    self.updateLogging(text: "Device info not returned. Error: \(String(describing: error))")
+//                    return
+//                }
+//
+//                let isSharedDevice = deviceInfo.deviceMode == .shared
+//                let modeString = isSharedDevice ? "shared" : "private"
+//                self.updateLogging(text: "Received device info. Device is in the \(modeString) mode.")
+//            })
         } else {
             self.updateLogging(text: "Running on older iOS. GetDeviceInformation API is unavailable.")
         }
@@ -318,40 +318,40 @@ extension ViewController {
         
         guard let applicationContext = self.applicationContext else { return }
         
-        let msalParameters = MSALParameters()
-        msalParameters.completionBlockQueue = DispatchQueue.main
-                
-        // Note that this sample showcases an app that signs in a single account at a time
-        // If you're building a more complex app that signs in multiple accounts at the same time, you'll need to use a different account retrieval API that specifies account identifier
-        // For example, see "accountsFromDeviceForParameters:completionBlock:" - https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALPublicClientApplication.html#/c:objc(cs)MSALPublicClientApplication(im)accountsFromDeviceForParameters:completionBlock:
-        applicationContext.getCurrentAccount(with: msalParameters, completionBlock: { (currentAccount, previousAccount, error) in
-            
-            if let error = error {
-                self.updateLogging(text: "Couldn't query current account with error: \(error)")
-                return
-            }
-            
-            if let currentAccount = currentAccount {
-                
-                self.updateLogging(text: "Found a signed in account \(String(describing: currentAccount.username)). Updating data for that account...")
-                
-                self.updateCurrentAccount(account: currentAccount)
-                
-                if let completion = completion {
-                    completion(self.currentAccount)
-                }
-                
-                return
-            }
-            
-            self.updateLogging(text: "Account signed out. Updating UX")
-            self.accessToken = ""
-            self.updateCurrentAccount(account: nil)
-            
-            if let completion = completion {
-                completion(nil)
-            }
-        })
+//        let msalParameters = MSALParameters()
+//        msalParameters.completionBlockQueue = DispatchQueue.main
+//
+//        // Note that this sample showcases an app that signs in a single account at a time
+//        // If you're building a more complex app that signs in multiple accounts at the same time, you'll need to use a different account retrieval API that specifies account identifier
+//        // For example, see "accountsFromDeviceForParameters:completionBlock:" - https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALPublicClientApplication.html#/c:objc(cs)MSALPublicClientApplication(im)accountsFromDeviceForParameters:completionBlock:
+//        applicationContext.getCurrentAccount(with: msalParameters, completionBlock: { (currentAccount, previousAccount, error) in
+//
+//            if let error = error {
+//                self.updateLogging(text: "Couldn't query current account with error: \(error)")
+//                return
+//            }
+//
+//            if let currentAccount = currentAccount {
+//
+//                self.updateLogging(text: "Found a signed in account \(String(describing: currentAccount.username)). Updating data for that account...")
+//
+//                self.updateCurrentAccount(account: currentAccount)
+//
+//                if let completion = completion {
+//                    completion(self.currentAccount)
+//                }
+//
+//                return
+//            }
+//
+//            self.updateLogging(text: "Account signed out. Updating UX")
+//            self.accessToken = ""
+//            self.updateCurrentAccount(account: nil)
+//
+//            if let completion = completion {
+//                completion(nil)
+//            }
+//        })
     }
     
     /**
@@ -372,20 +372,20 @@ extension ViewController {
              - account:    The account to remove from the cache
              */
             
-            let signoutParameters = MSALSignoutParameters(webviewParameters: self.webViewParamaters!)
-            signoutParameters.signoutFromBrowser = false
-            
-            applicationContext.signout(with: account, signoutParameters: signoutParameters, completionBlock: {(success, error) in
-                
-                if let error = error {
-                    self.updateLogging(text: "Couldn't sign out account with error: \(error)")
-                    return
-                }
-                
-                self.updateLogging(text: "Sign out completed successfully")
-                self.accessToken = ""
-                self.updateCurrentAccount(account: nil)
-            })
+//            let signoutParameters = MSALSignoutParameters(webviewParameters: self.webViewParamaters!)
+//            signoutParameters.signoutFromBrowser = false
+//
+//            applicationContext.signout(with: account, signoutParameters: signoutParameters, completionBlock: {(success, error) in
+//
+//                if let error = error {
+//                    self.updateLogging(text: "Couldn't sign out account with error: \(error)")
+//                    return
+//                }
+//
+//                self.updateLogging(text: "Sign out completed successfully")
+//                self.accessToken = ""
+//                self.updateCurrentAccount(account: nil)
+//            })
             
         }
     }

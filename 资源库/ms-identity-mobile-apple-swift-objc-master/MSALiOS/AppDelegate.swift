@@ -26,7 +26,7 @@
 //------------------------------------------------------------------------------
 
 import UIKit
-import MSAL
+//import MSAL
 
 
 @UIApplicationMain
