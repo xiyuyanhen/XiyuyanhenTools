@@ -226,6 +226,8 @@ extension DebugToolsMainManagerViewController : DebugToolsViewControllerDelegate
             
         case .测试A:
             
+            XYOnedrive.Setups()
+            
             break
             
         case .设置虚假的应用版本号:

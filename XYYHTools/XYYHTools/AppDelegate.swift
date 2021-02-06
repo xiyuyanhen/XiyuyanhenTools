@@ -10,6 +10,8 @@ import UIKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    var window: UIWindow? 
+    
     lazy var tabbarController : AppTabbarController = { () -> AppTabbarController in
         
         AppTabbarController.XYInitBySystem()
@@ -31,11 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             XYBmobTools.Register()
         }
         
-        //ODClient(url: <#T##String!#>, httpProvider: <#T##ODHttpProvider!#>, authProvider: <#T##ODAuthProvider!#>)
+        
         
         return true
     }
-
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

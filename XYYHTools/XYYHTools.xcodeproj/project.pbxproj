@@ -368,6 +368,7 @@
 		2399EFBC24B30AAB00741E0B /* XYWDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399EFB824B30AAB00741E0B /* XYWDBManager.swift */; };
 		2399EFBF24B32D4200741E0B /* Loading-effect-Balls-200.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2399EFBE24B32D4200741E0B /* Loading-effect-Balls-200.gif */; };
 		239B889525BD71DD00978291 /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 239B889425BD71DD00978291 /* CoreAudioKit.framework */; };
+		239B90C125BD8E9A00978291 /* XYOnedrive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B90C025BD8E9A00978291 /* XYOnedrive.swift */; };
 		23A56922246C3FDC004D2449 /* VirtualCurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A56921246C3FDC004D2449 /* VirtualCurrencyModel.swift */; };
 		23A56925246C4132004D2449 /* HomeworkItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A56923246C4132004D2449 /* HomeworkItemTableViewCell.swift */; };
 		23A56926246C4132004D2449 /* HomeworkItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A56924246C4132004D2449 /* HomeworkItemTableViewCell.xib */; };
@@ -833,6 +834,7 @@
 		2399EFB824B30AAB00741E0B /* XYWDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYWDBManager.swift; sourceTree = "<group>"; };
 		2399EFBE24B32D4200741E0B /* Loading-effect-Balls-200.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Loading-effect-Balls-200.gif"; sourceTree = "<group>"; };
 		239B889425BD71DD00978291 /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
+		239B90C025BD8E9A00978291 /* XYOnedrive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYOnedrive.swift; sourceTree = "<group>"; };
 		23A56921246C3FDC004D2449 /* VirtualCurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualCurrencyModel.swift; sourceTree = "<group>"; };
 		23A56923246C4132004D2449 /* HomeworkItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeworkItemTableViewCell.swift; sourceTree = "<group>"; };
 		23A56924246C4132004D2449 /* HomeworkItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeworkItemTableViewCell.xib; sourceTree = "<group>"; };
@@ -1039,6 +1041,7 @@
 				23877F832438E0E800C57B15 /* XYPGYTools.swift */,
 				23877F842438E0E800C57B15 /* XYLog */,
 				23877F932438E0E800C57B15 /* XYCleaner.swift */,
+				239B90C025BD8E9A00978291 /* XYOnedrive.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -2457,6 +2460,7 @@
 				2387824F2438E0E900C57B15 /* XYPrivacyManager.swift in Sources */,
 				2387815C2438E0E900C57B15 /* ZFReachabilityManager.m in Sources */,
 				2387821B2438E0E900C57B15 /* BaseCollectionViewCell.swift in Sources */,
+				239B90C125BD8E9A00978291 /* XYOnedrive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2598,7 +2602,7 @@
 				DEVELOPMENT_TEAM = 4AGJM83C9K;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = XYYHTools/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2622,7 +2626,7 @@
 				DEVELOPMENT_TEAM = 4AGJM83C9K;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = XYYHTools/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
