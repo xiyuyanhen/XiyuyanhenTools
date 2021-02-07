@@ -35,6 +35,8 @@
 
 #import <BmobSDK/Bmob.h>
 
+#import "MSAL.h"
+#import "MSALWebviewParameters.h"
 #import <OneDriveSDK/OneDriveSDK.h>
 
 //#import "CAudioKit.h"

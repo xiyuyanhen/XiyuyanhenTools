@@ -29,6 +29,8 @@
 		235DAB74243992D5004AFA53 /* PracticeProcess_TimeSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DAB6F243992D5004AFA53 /* PracticeProcess_TimeSchedule.swift */; };
 		235DAB75243992D5004AFA53 /* PracticeProcessTimeConsumingItem_Timing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DAB70243992D5004AFA53 /* PracticeProcessTimeConsumingItem_Timing.swift */; };
 		235DAB772439D7FA004AFA53 /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 235DAB762439D7E5004AFA53 /* libiconv.2.4.0.tbd */; };
+		2375507A25CE634C00725591 /* XYOneDriveIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375507925CE634C00725591 /* XYOneDriveIndexViewController.swift */; };
+		2375508625CE6B7300725591 /* MSALWebviewParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 2375508425CE6B7300725591 /* MSALWebviewParameters.m */; };
 		2375EC4924E4301E0012F788 /* DebugToolsManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4424E4301E0012F788 /* DebugToolsManage.swift */; };
 		2375EC4A24E4301E0012F788 /* DebugToolsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4524E4301E0012F788 /* DebugToolsTableViewCell.swift */; };
 		2375EC4B24E4301E0012F788 /* DebugToolsModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375EC4624E4301E0012F788 /* DebugToolsModelType.swift */; };
@@ -407,6 +409,10 @@
 		235DAB6F243992D5004AFA53 /* PracticeProcess_TimeSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeProcess_TimeSchedule.swift; sourceTree = "<group>"; };
 		235DAB70243992D5004AFA53 /* PracticeProcessTimeConsumingItem_Timing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeProcessTimeConsumingItem_Timing.swift; sourceTree = "<group>"; };
 		235DAB762439D7E5004AFA53 /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
+		2375507925CE634C00725591 /* XYOneDriveIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYOneDriveIndexViewController.swift; sourceTree = "<group>"; };
+		2375508425CE6B7300725591 /* MSALWebviewParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSALWebviewParameters.m; sourceTree = "<group>"; };
+		2375508525CE6B7300725591 /* MSALWebviewParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSALWebviewParameters.h; sourceTree = "<group>"; };
+		2375508C25CE8AD800725591 /* 我的工具箱.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "我的工具箱.entitlements"; sourceTree = "<group>"; };
 		2375EC4424E4301E0012F788 /* DebugToolsManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsManage.swift; sourceTree = "<group>"; };
 		2375EC4524E4301E0012F788 /* DebugToolsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsTableViewCell.swift; sourceTree = "<group>"; };
 		2375EC4624E4301E0012F788 /* DebugToolsModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugToolsModelType.swift; sourceTree = "<group>"; };
@@ -919,6 +925,23 @@
 			path = PracticeProcessTimeConsuming;
 			sourceTree = "<group>";
 		};
+		2375507825CE631A00725591 /* XYOneDrive */ = {
+			isa = PBXGroup;
+			children = (
+				2375507925CE634C00725591 /* XYOneDriveIndexViewController.swift */,
+			);
+			path = XYOneDrive;
+			sourceTree = "<group>";
+		};
+		2375508325CE6B4A00725591 /* MSAL */ = {
+			isa = PBXGroup;
+			children = (
+				2375508525CE6B7300725591 /* MSALWebviewParameters.h */,
+				2375508425CE6B7300725591 /* MSALWebviewParameters.m */,
+			);
+			path = MSAL;
+			sourceTree = "<group>";
+		};
 		2375EC4324E4301E0012F788 /* DebugTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -963,6 +986,7 @@
 		23877F3E2438D48400C57B15 /* XYYHTools */ = {
 			isa = PBXGroup;
 			children = (
+				2375508C25CE8AD800725591 /* 我的工具箱.entitlements */,
 				23877F4A2438D48500C57B15 /* LaunchScreen.storyboard */,
 				23877F3F2438D48400C57B15 /* AppDelegate.swift */,
 				23877F412438D48400C57B15 /* SceneDelegate.swift */,
@@ -1201,6 +1225,7 @@
 		23877F9E2438E0E800C57B15 /* OC */ = {
 			isa = PBXGroup;
 			children = (
+				2375508325CE6B4A00725591 /* MSAL */,
 				23877F9F2438E0E800C57B15 /* ZFPlayer */,
 				23877FD62438E0E800C57B15 /* XYAVAudioSession.m */,
 				23877FD72438E0E800C57B15 /* Menu */,
@@ -1908,6 +1933,7 @@
 				23B5C8E6243AE1270044E8AB /* 首页 */,
 				23FABACD244B1CA200298C77 /* 浏览器 */,
 				2375EC4324E4301E0012F788 /* DebugTools */,
+				2375507825CE631A00725591 /* XYOneDrive */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -2171,11 +2197,13 @@
 				238782452438E0E900C57B15 /* SubmitAlertView.swift in Sources */,
 				23B5C8F4243AF40E0044E8AB /* RequestData_Bitstamp.swift in Sources */,
 				238782542438E0E900C57B15 /* TriangleView.swift in Sources */,
+				2375508625CE6B7300725591 /* MSALWebviewParameters.m in Sources */,
 				238782232438E0E900C57B15 /* BaseTextField.swift in Sources */,
 				238781792438E0E900C57B15 /* SKPhotoBrowser.swift in Sources */,
 				235DAB6624398DD8004AFA53 /* Project_APPProject_Target.swift in Sources */,
 				2387812D2438E0E900C57B15 /* XYNotificationManage.swift in Sources */,
 				238781E32438E0E900C57B15 /* Public_Function.swift in Sources */,
+				2375507A25CE634C00725591 /* XYOneDriveIndexViewController.swift in Sources */,
 				238782432438E0E900C57B15 /* XYProgressLine.swift in Sources */,
 				238781982438E0E900C57B15 /* MJRefreshBackStateFooter.m in Sources */,
 				238781282438E0E900C57B15 /* Reachability.swift in Sources */,
@@ -2593,6 +2621,7 @@
 			baseConfigurationReference = A9CA967CDDDE42F02310F823 /* Pods-XYYHTools.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "XYYHTools/我的工具箱.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"XYYHTools/Preview Content\"";
 				DEVELOPMENT_TEAM = 4AGJM83C9K;
@@ -2617,6 +2646,7 @@
 			baseConfigurationReference = 2634AA4967C07C2D32F44DF6 /* Pods-XYYHTools.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "XYYHTools/我的工具箱.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"XYYHTools/Preview Content\"";
 				DEVELOPMENT_TEAM = 4AGJM83C9K;

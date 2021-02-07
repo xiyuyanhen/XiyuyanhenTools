@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1100"
+   LastUpgradeVersion = "1200"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CA298FF53B6D582AE40929DFE1454BBD"
-               BuildableName = "WCDBSwift.framework"
-               BlueprintName = "WCDB.swift"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "23877F3B2438D48400C57B15"
+               BuildableName = "&#x6211;&#x7684;&#x5de5;&#x5177;&#x7bb1;.app"
+               BlueprintName = "XYYHTools"
+               ReferencedContainer = "container:XYYHTools.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "23877F3B2438D48400C57B15"
+            BuildableName = "&#x6211;&#x7684;&#x5de5;&#x5177;&#x7bb1;.app"
+            BlueprintName = "XYYHTools"
+            ReferencedContainer = "container:XYYHTools.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,6 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "23877F3B2438D48400C57B15"
+            BuildableName = "&#x6211;&#x7684;&#x5de5;&#x5177;&#x7bb1;.app"
+            BlueprintName = "XYYHTools"
+            ReferencedContainer = "container:XYYHTools.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

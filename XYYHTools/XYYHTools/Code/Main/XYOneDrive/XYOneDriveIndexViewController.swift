@@ -1,36 +1,22 @@
-//------------------------------------------------------------------------------
 //
-// Copyright (c) Microsoft Corporation.
-// All rights reserved.
+//  XYOneDriveIndexViewController.swift
+//  XYYHTools
 //
-// This code is licensed under the MIT License.
+//  Created by 细雨湮痕 on 2021/2/6.
+//  Copyright © 2021 io.xiyuyanhen. All rights reserved.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files(the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and / or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions :
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-//
-//------------------------------------------------------------------------------
 
-import UIKit
-//import MSAL
+import Foundation
 
-/// 😃 A View Controller that will respond to the events of the Storyboard.
+/* 文档
+ 
+ OneDrive 开发人员平台
+ https://docs.microsoft.com/zh-cn/onedrive/developer/rest-api/api/drive_get_specialfolder?view=odsp-graph-online
+ 
+ 
+ */
 
-class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate {
+class XYOneDriveIndexViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate {
     
     // Update the below to your client ID you received in the portal. The below is for running the demo only
     let kClientID = "b973bda6-daa8-42d1-a90b-f8b33260e9bd"
@@ -94,7 +80,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 
 // MARK: Initialization
 
-extension ViewController {
+extension XYOneDriveIndexViewController {
     
     /**
      
@@ -135,22 +121,22 @@ extension ViewController {
 
 // MARK: Shared device
 
-extension ViewController {
+extension XYOneDriveIndexViewController {
     
     @objc func getDeviceMode(_ sender: UIButton) {
         
         if #available(iOS 13.0, *) {
-            self.applicationContext?.getDeviceInformation(with: nil, completionBlock: { (deviceInformation, error) in
-
-                guard let deviceInfo = deviceInformation else {
-                    self.updateLogging(text: "Device info not returned. Error: \(String(describing: error))")
-                    return
-                }
-
-                let isSharedDevice = deviceInfo.deviceMode == .shared
-                let modeString = isSharedDevice ? "shared" : "private"
-                self.updateLogging(text: "Received device info. Device is in the \(modeString) mode.")
-            })
+//            self.applicationContext?.getDeviceInformation(with: nil, completionBlock: { (deviceInformation, error) in
+//
+//                guard let deviceInfo = deviceInformation else {
+//                    self.updateLogging(text: "Device info not returned. Error: \(String(describing: error))")
+//                    return
+//                }
+//
+//                let isSharedDevice = deviceInfo.deviceMode == .shared
+//                let modeString = isSharedDevice ? "shared" : "private"
+//                self.updateLogging(text: "Received device info. Device is in the \(modeString) mode.")
+//            })
         } else {
             self.updateLogging(text: "Running on older iOS. GetDeviceInformation API is unavailable.")
         }
@@ -160,7 +146,7 @@ extension ViewController {
 
 // MARK: Acquiring and using token
 
-extension ViewController {
+extension XYOneDriveIndexViewController {
     
     /**
      This will invoke the authorization flow.
@@ -185,10 +171,8 @@ extension ViewController {
     func acquireTokenInteractively() {
         
         guard let applicationContext = self.applicationContext else { return }
-        guard let webViewParameters = self.webViewParamaters else { return }
 
-        let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: webViewParameters)
-        parameters.promptType = .selectAccount
+        let parameters = MSALInteractiveTokenParameters(scopes: kScopes)
         
         applicationContext.acquireToken(with: parameters) { (result, error) in
             
@@ -302,7 +286,7 @@ extension ViewController {
             
             self.updateLogging(text: "Result from Graph: \(result))")
             
-            }.resume()
+        }.resume()
     }
 
 }
@@ -310,7 +294,7 @@ extension ViewController {
 
 // MARK: Get account and removing cache
 
-extension ViewController {
+extension XYOneDriveIndexViewController {
     
     typealias AccountCompletion = (MSALAccount?) -> Void
 
@@ -318,40 +302,26 @@ extension ViewController {
         
         guard let applicationContext = self.applicationContext else { return }
         
-        let msalParameters = MSALParameters()
-        msalParameters.completionBlockQueue = DispatchQueue.main
+        guard let accounts = try? applicationContext.allAccounts(),
+            let currentAccount = accounts.first else {
+            
+            self.updateLogging(text: "Found a signed in account \(""). Updating data for that account...")
 
-        // Note that this sample showcases an app that signs in a single account at a time
-        // If you're building a more complex app that signs in multiple accounts at the same time, you'll need to use a different account retrieval API that specifies account identifier
-        // For example, see "accountsFromDeviceForParameters:completionBlock:" - https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALPublicClientApplication.html#/c:objc(cs)MSALPublicClientApplication(im)accountsFromDeviceForParameters:completionBlock:
-        applicationContext.getCurrentAccount(with: msalParameters, completionBlock: { (currentAccount, previousAccount, error) in
-
-            if let error = error {
-                self.updateLogging(text: "Couldn't query current account with error: \(error)")
-                return
-            }
-
-            if let currentAccount = currentAccount {
-
-                self.updateLogging(text: "Found a signed in account \(String(describing: currentAccount.username)). Updating data for that account...")
-
-                self.updateCurrentAccount(account: currentAccount)
-
-                if let completion = completion {
-                    completion(self.currentAccount)
-                }
-
-                return
-            }
-
-            self.updateLogging(text: "Account signed out. Updating UX")
-            self.accessToken = ""
             self.updateCurrentAccount(account: nil)
-
+            
             if let completion = completion {
                 completion(nil)
             }
-        })
+            return
+        }
+        
+        self.updateLogging(text: "Account signed out. Updating UX")
+        self.accessToken = ""
+        self.updateCurrentAccount(account: currentAccount)
+
+        if let completion = completion {
+            completion(currentAccount)
+        }
     }
     
     /**
@@ -360,40 +330,29 @@ extension ViewController {
      */
     @objc func signOut(_ sender: UIButton) {
         
-        guard let applicationContext = self.applicationContext else { return }
-        
-        guard let account = self.currentAccount else { return }
+        guard let applicationContext = self.applicationContext,
+            let account = self.currentAccount else { return }
         
         do {
             
-            /**
-             Removes all tokens from the cache for this application for the provided account
-             
-             - account:    The account to remove from the cache
-             */
+            try applicationContext.remove(account)
             
-            let signoutParameters = MSALSignoutParameters(webviewParameters: self.webViewParamaters!)
-            signoutParameters.signoutFromBrowser = false
-
-            applicationContext.signout(with: account, signoutParameters: signoutParameters, completionBlock: {(success, error) in
-
-                if let error = error {
-                    self.updateLogging(text: "Couldn't sign out account with error: \(error)")
-                    return
-                }
-
-                self.updateLogging(text: "Sign out completed successfully")
-                self.accessToken = ""
-                self.updateCurrentAccount(account: nil)
-            })
+            self.updateLogging(text: "Sign out completed successfully")
+            self.accessToken = ""
+            self.updateCurrentAccount(account: nil)
             
+        }catch let e {
+            
+            let error = XYError(error: e)
+            
+            self.updateLogging(text: "Couldn't sign out account with error: \(error.detailMsg)")
         }
     }
 }
 
 
 // MARK: UI Helpers
-extension ViewController {
+extension XYOneDriveIndexViewController {
     
     func initUI() {
         
@@ -463,6 +422,8 @@ extension ViewController {
     }
     
     func updateLogging(text : String) {
+        
+        XYLog.LogNote(msg: text)
         
         if Thread.isMainThread {
             self.loggingText.text = text

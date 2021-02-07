@@ -226,6 +226,10 @@ extension DebugToolsMainManagerViewController : DebugToolsViewControllerDelegate
             
         case .测试A:
             
+            let indexVC = XYOneDriveIndexViewController()
+            
+            self.navigationController?.pushViewController(indexVC, animated: true)
+            
             break
             
         case .设置虚假的应用版本号:

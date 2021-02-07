@@ -971,3 +971,14 @@ extension XYBmobObject_大乐透: StructModelProtocol_Create {
  }
  
  */
+
+extension XYBmobObject_大乐透 {
+    
+    func bmobQueryByDataObjectId() -> BmobQuery {
+        
+        let newValue: BmobQuery = self.bmobQuery
+        newValue.whereKey(CodingKeys.dataObjectId.stringValue, notEqualTo: self.dataObjectId)
+        
+        return newValue
+    }
+}
